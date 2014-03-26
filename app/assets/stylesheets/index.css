@@ -1,0 +1,21 @@
+.abracadabra {
+  border-bottom: 1px dashed;
+  color: #428bca;
+}
+
+.abracadabra:hover {
+  text-decoration: none;
+  color: darken(#428bca, 10%);
+}
+
+.abracadabra-container { display: block; }
+
+.abracadabra-container > form > .control-group > div > .abracadabra-input {
+  width: 60%;
+  display: inline-block;
+}
+
+.abracadabra-container > form > .control-group > div > .abracadabra-buttons {
+  width: 40%;
+  display: inline-block;
+}
