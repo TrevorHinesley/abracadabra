@@ -1,2 +1,9 @@
-require "abracadabra/version"
-require "abracadabra/engine"
+module Abracadabra
+  class Engine < Rails::Engine
+    initialize 'abracadabra.initialize' do
+      ActiveSupport.on_load(:action_view) do
+        include Abracadabra::ViewHelpers
+      end
+    end
+  end
+end
