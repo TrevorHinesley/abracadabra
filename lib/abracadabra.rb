@@ -1,10 +1,2 @@
 require "abracadabra/version"
-require "abracadabra/view_helpers"
-
-module Abracadabra
-  class Engine < Rails::Engine
-    initializer 'abracadabra.view_helpers' do
-      ActionView::Helpers.send :include, ViewHelpers
-    end
-  end
-end
+require "abracadabra/engine"
