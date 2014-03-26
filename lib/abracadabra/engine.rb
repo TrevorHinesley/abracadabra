@@ -1,3 +1,5 @@
+require "abracadabra/view_helpers"
+
 module Abracadabra
   class Engine < Rails::Engine
     initialize 'abracadabra.initialize' do
