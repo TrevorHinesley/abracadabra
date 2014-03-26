@@ -1,7 +1,4 @@
-require "abracadabra/railtie"
+require "abracadabra/view_helpers"
+require "abracadabra/engine"
 
-module Abracadabra
-  extend ActiveSupport::Autoload
-
-  autoload :ViewHelpers
-end
+ActionView::Base.send(:include, ViewHelpers) if defined?(ActionView::Base)
