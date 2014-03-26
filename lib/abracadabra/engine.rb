@@ -2,7 +2,7 @@ require "abracadabra/view_helpers"
 
 module Abracadabra
   class Engine < Rails::Engine
-    initialize 'abracadabra.initialize' do
+    initializer 'abracadabra.initialize' do
       ActiveSupport.on_load(:action_view) do
         include Abracadabra::ViewHelpers
       end
