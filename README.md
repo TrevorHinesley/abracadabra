@@ -1,6 +1,6 @@
 # Abracadabra
 
-TODO: Write a gem description
+A lightweight gem for swapping out text with a fully-compliant Rails form in one click.
 
 ## Installation
 
