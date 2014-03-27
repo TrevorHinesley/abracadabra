@@ -53,10 +53,10 @@ It accepts the following parameters:
 ```ruby
 ### REQUIRED ###
 path: user_path(@user)
-# Specifies where the form will be submitted
+# Specifies where the form will be submitted.
 
 attribute: :name
-# Specifies what attribute your text field will be updating
+# Specifies what attribute your text field will be updating.
 
 
 ### OPTIONAL ###
@@ -73,13 +73,13 @@ method: "patch"
 # Default: "patch"
 
 remote: true
-# Same as link_to's remote: true, initiates ajax response
+# Same as link_to's remote: true, form submits via AJAX.
 # Default: true
 
 type: :js
 # Content type -- responds to any content types (:js and :script can both be used to respond with Javascript).
 # Default: :script (:js)
-# IMPORTANT: Requires the remote: true option to work
+# IMPORTANT: Requires the `remote: true` option to work.
 ```
 
 ## Future & Contributing
