@@ -1,4 +1,4 @@
-require "abracadabra/view_helpers"
+require "abracadabra/view_helper"
 
 module Abracadabra
   module Rails
