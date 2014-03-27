@@ -13,7 +13,7 @@ module Abracadabra
           remote = false
         end
 
-        data_type = options[:type].gsub(/^j+s+$/, "script") || "script"
+        data_type = options[:type].to_s.gsub(/^j+s+$/, "script") || "script"
 
         link_to value, "javascript:void(0)", class: link_class, method: method.to_sym, data: { path: options[:path], attribute: options[:attribute], class: instance_class, type: data_type.to_sym }, remote: remote
       end
