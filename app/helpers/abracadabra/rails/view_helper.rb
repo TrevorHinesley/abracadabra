@@ -6,8 +6,14 @@ module Abracadabra
         link_class = "#{options[:class]} abracadabra".strip
         value = options[:value] || instance.send(options[:attribute])
         method = options[:method] || "patch"
-        remote = options[:remote].nil? || options[:remote] == true ? true : false
-        data_type = options[:type] || "script"
+
+        if (options[:remote].nil? && options[:type].nil?) || options[:remote] == true
+          remote = true
+        else
+          remote = false
+        end
+
+        data_type = options[:type].gsub(/^j+s+$/, "script") || "script"
 
         link_to value, "javascript:void(0)", class: link_class, method: method.to_sym, data: { path: options[:path], attribute: options[:attribute], class: instance_class, type: data_type.to_sym }, remote: remote
       end
