@@ -24,7 +24,7 @@ $(function() {
     path = link.data("path");
     attribute = link.data("attribute");
     form_method = link.data("method");
-    remote = ((link.data("remote") == "true") ? " data-remote='true'" : "");
+    remote = ((link.data("remote") == true) ? " data-remote='true'" : "");
 
     if(remote == "") {
       auth_token = "<input name='authenticity_token' type='hidden' value='" + $('meta[name="csrf-token"]').attr('content') + "'>";

@@ -61,7 +61,7 @@ method: "patch"
 
 ## Future & Contributing
 
-I would love anyone to add date pickers and other alternate field types to this. It would be nice to respond to more than just javascript as well (very simple to implement). Any other ideas, feel free to contribute!
+I would love anyone to add date pickers and other alternate field types to this. Any other ideas, feel free to contribute!
 
 1. Fork it ( http://github.com/TrevorHinesley/abracadabra/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
