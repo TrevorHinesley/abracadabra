@@ -20,6 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
+* Require JQuery, JQuery-UJS (rails.js), Bootstrap and Font-Awesome (unless you override the `fa-check` and `fa-times` classes for the form buttons)
+
 In your `application.css`, AFTER Bootstrap (currently only supports Bootstrap), include the css file:
 
 ```css
@@ -73,7 +75,11 @@ type: :js
 
 ## Future & Contributing
 
-I would love anyone to add date pickers and other alternate field types to this. Any other ideas, feel free to contribute!
+1. I would love anyone to add date pickers and other alternate field types to this.
+
+2. I would love the different Bootstrap classes to be overridable with an initializer (config/abracadabra.rb) so that any framework could be used. Same with the fonts.
+
+Any other ideas, feel free to contribute!
 
 1. Fork it ( http://github.com/TrevorHinesley/abracadabra/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
