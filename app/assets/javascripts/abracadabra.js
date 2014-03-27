@@ -25,6 +25,13 @@ $(function() {
     attribute = link.data("attribute");
     form_method = link.data("method");
     remote = ((link.data("remote") == "true") ? " data-remote='true'" : "");
+
+    if(remote == "") {
+      auth_token = "<input name='authenticity_token' type='hidden' value='" + $('meta[name="csrf-token"]').attr('content') + "'>";
+    } else {
+      auth_token = "";
+    }
+    
     type = link.data("type");
     instance_class = link.data("class");
     input_value = link.text();
@@ -33,7 +40,7 @@ $(function() {
 
     buttons = "<button type='submit' class='btn btn-primary abracadabra-submit'><i class='fa fa-check'></i></button><button type='button' class='btn abracadabra-cancel'><i class='fa fa-times'></i></button>";
     open_form_tag = "<form accept-charset='UTF-8' action='" + path + remote + "' data-type='" + type + "' class='form-inline abracadabra-form' method='post'>";
-    hidden_method_tags = "<div style='display:none;'><input name='utf8' type='hidden' value='&#10003;'><input name='_method' type='hidden' value='" + form_method + "'></div>";
+    hidden_method_tags = "<div style='display:none;'><input name='utf8' type='hidden' value='&#10003;'><input name='_method' type='hidden' value='" + form_method + "'>" + auth_token + "</div>";
     input = "<input type='text' class='form-control' id='" + input_id + "' name='" + input_name + "' value='" + input_value + "'>";
     
     html = "<span class='abracadabra-container abracadabra-inline'>" + open_form_tag + hidden_method_tags;
