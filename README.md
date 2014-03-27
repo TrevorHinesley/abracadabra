@@ -76,10 +76,10 @@ remote: true
 # Same as link_to's remote: true, form submits via AJAX.
 # Default: true
 
+# IMPORTANT: `type` requires the `remote: true` option to work.
 type: :js
 # Content type -- responds to any content types (:js and :script can both be used to respond with Javascript).
 # Default: :script (:js)
-# IMPORTANT: Requires the `remote: true` option to work.
 ```
 
 ## Future & Contributing
