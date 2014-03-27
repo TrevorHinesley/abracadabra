@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Trevor Hinesley"]
   spec.email         = ["trevor.hinesley@gmail.com"]
   spec.summary       = %q{A lightweight gem for swapping out text with a fully-compliant Rails form in one click using JQuery.}
-  spec.description   = %q{Abracadabra: #{spec.summary}}
+  spec.description   = %q{Abracadabra: A lightweight gem for swapping out text with a fully-compliant Rails form in one click using JQuery and rails.js.}
   spec.homepage      = "https://github.com/TrevorHinesley/abracadabra"
   spec.license       = "MIT"
 
