@@ -61,7 +61,7 @@ attribute: :name
 
 ### OPTIONAL ###
 class: "my-class"
-# A class to be added to the text input of the form. The class "abracadabra" is added either way.
+# Class(es) to be added to the text input of the form. The class "abracadabra" is added either way.
 # Default: only "abracadabra"
 
 value: "blah"
