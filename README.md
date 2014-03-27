@@ -50,13 +50,25 @@ It accepts the following optional hash keys (more will be added soon):
 
 ```ruby
 class: "my-class"
-# A class to be added to the text input of the form.
+# A class to be added to the text input of the form. The class "abracadabra" is added either way.
+# Default: only "abracadabra"
 
 value: "blah"
 # An alternate value, other than what object.attribute would return.
+# Default: object.attribute
 
 method: "patch"
 # HTTP REST method to use. Use anything but "get".
+# Default: "patch"
+
+remote: true
+# Same as link_to's remote: true, initiates ajax response
+# Default: true
+
+type: :js
+# Content type -- responds to any content types (:js and :script can both be used to respond with Javascript).
+# Default: :script (:js)
+# IMPORTANT: Requires the remote: true option to work
 ```
 
 ## Future & Contributing
