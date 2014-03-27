@@ -7,7 +7,7 @@ module Abracadabra
         value = options[:value] || instance.send(options[:attribute])
         method = options[:method] || "patch"
 
-        if (options[:remote].nil? && options[:type].nil?) || options[:remote] == true
+        if (options[:remote].nil? && !options[:type].nil?) || options[:remote] == true
           remote = true
         else
           remote = false
