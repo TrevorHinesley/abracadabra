@@ -5,12 +5,11 @@ require 'abracadabra/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "abracadabra"
-  spec.version       = Abracadabra::VERSION
-  spec.platform      = Gem::Platform::RUBY
+  spec.version       = Abracadabra::Rails::VERSION
   spec.authors       = ["Trevor Hinesley"]
   spec.email         = ["trevor.hinesley@gmail.com"]
   spec.summary       = %q{A lightweight gem for swapping out text with a fully-compliant Rails form in one click using JQuery.}
-  # spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.description   = %q{Abracadabra: #{spec.summary}}
   spec.homepage      = "https://github.com/TrevorHinesley/abracadabra"
   spec.license       = "MIT"
 
