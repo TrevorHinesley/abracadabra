@@ -24,13 +24,15 @@ $(function() {
     path = link.data("path");
     attribute = link.data("attribute");
     form_method = link.data("method");
+    remote = ((link.data("remote") == "true") ? " data-remote='true'" : "");
+    type = link.data("type");
     instance_class = link.data("class");
     input_value = link.text();
     input_id = instance_class + "_" + attribute;
     input_name = instance_class + "[" + attribute + "]";
 
     buttons = "<button type='submit' class='btn btn-primary abracadabra-submit'><i class='fa fa-check'></i></button><button type='button' class='btn abracadabra-cancel'><i class='fa fa-times'></i></button>";
-    open_form_tag = "<form accept-charset='UTF-8' action='" + path + "' data-remote='true' class='form-inline abracadabra-form' method='post'>";
+    open_form_tag = "<form accept-charset='UTF-8' action='" + path + remote + "' data-type='" + type + "' class='form-inline abracadabra-form' method='post'>";
     hidden_method_tags = "<div style='display:none;'><input name='utf8' type='hidden' value='&#10003;'><input name='_method' type='hidden' value='" + form_method + "'></div>";
     input = "<input type='text' class='form-control' id='" + input_id + "' name='" + input_name + "' value='" + input_value + "'>";
     
