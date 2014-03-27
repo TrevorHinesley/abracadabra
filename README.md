@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-* Requires JQuery, JQuery-UJS (rails.js), Bootstrap and Font-Awesome (unless you override the `fa-check` and `fa-times` classes for the form buttons)
+* Requires JQuery, JQuery-UJS (rails.js), Bootstrap and Font-Awesome (unless you override the framework specific classes with CSS)
 
 In your `application.css`, AFTER Bootstrap (currently only supports Bootstrap), include the css file:
 
