@@ -86,7 +86,7 @@ type: :js
 
 1. I would love anyone to add date pickers and other alternate field types to this.
 
-2. I would love the different Bootstrap classes to be overridable with an initializer (config/abracadabra.rb) so that any framework could be used. Same with the fonts.
+2. I would love the different Bootstrap classes to be overridable with an initializer (config/abracadabra.rb) so that any framework could be used. Same with the Font-Awesome button classes.
 
 Any other ideas, feel free to contribute!
 
