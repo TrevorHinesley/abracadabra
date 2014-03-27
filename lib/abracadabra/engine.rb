@@ -1,8 +1,11 @@
 require "abracadabra/view_helpers"
 
 module Abracadabra
-  class Engine < Rails::Engine
+  module Rails
+    class Engine < ::Rails::Engine
+      initializer 'abracadabra.view_helpers' do
+        ActionView::Base.send :include, ViewHelper
+      end
+    end
   end
 end
-
-ActionController::Base.send(:include, ViewHelpers)
