@@ -73,7 +73,7 @@ method: "patch"
 # Default: "patch"
 
 remote: true
-# Same as link_to's remote: true, form submits via AJAX.
+# Same as link_to's `remote: true`, form submits via AJAX.
 # Default: true
 
 # IMPORTANT: `type` will be ignored if `remote = false` is used. HTML is the default 
