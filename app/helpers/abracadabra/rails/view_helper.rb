@@ -7,10 +7,10 @@ module Abracadabra
         value = options[:value] || instance.send(options[:attribute])
         method = options[:method] || "patch"
 
-        if (options[:remote].nil? && options[:type].nil?) || options[:remote] == true
-          remote = true
-        else
+        if !options[:remote].nil? && options[:remote] == false
           remote = false
+        else
+          remote = true
         end
 
         data_type = options[:type].to_s.gsub(/^j+s+$/, "script") || "script"
