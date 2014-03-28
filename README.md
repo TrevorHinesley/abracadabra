@@ -36,7 +36,7 @@ In your `application.js`, AFTER Jquery (required), include the javascript file:
 
 ## Helpers
 
-The bread and butter of abracadabra is its helper, `click_to_edit`. Its pretty much as readable as it gets:
+The bread and butter of abracadabra is its helper, `click_to_edit`. It's pretty much as readable as it gets:
 
 ```ruby
 <%= click_to_edit @user, path: user_path(@user), attribute: :name %>
