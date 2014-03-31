@@ -35,7 +35,7 @@ $(function() {
     }
 
     instance_class = link.data("class");
-    input_value = link.text();
+    input_value = link.text().replace(/"|\\"/g, "&quot;");
     input_id = instance_class + "_" + attribute;
     input_name = instance_class + "[" + attribute + "]";
 
