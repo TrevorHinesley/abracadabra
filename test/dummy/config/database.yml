@@ -1,0 +1,9 @@
+development:
+  host: localhost
+  adapter: postgresql
+  database: abracadabra_development
+
+test:
+  host: localhost
+  adapter: postgresql
+  database: abracadabra_test
