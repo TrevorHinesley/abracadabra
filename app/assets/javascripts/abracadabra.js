@@ -1,23 +1,30 @@
 $(function() {
-  function cancelAbracadabra(element) {
-    container = $(element).parents(".abracadabra-container");
+  function closeAbracadabra(element) {
+    if(element.hasClass("abracadabra-container")) {
+      container = $(element);
+    } else {
+      container = $(element).parents(".abracadabra-container");
+    }
     value = container.find(".abracadabra-input-container input").val();
     container.siblings(".abracadabra").text(value).show();
     container.remove();
   }
 
   $("body").on("ajax:success", ".abracadabra-form", function(e) {
-    $(e.target).find(".abracadabra-cancel").click();
+    console.log("ajax success");
+    closeAbracadabra(this);
   })
 
   $("body").on("click", ".abracadabra-cancel", function() {
-    cancelAbracadabra(this);
+    console.log("cancel click");
+    closeAbracadabra(this);
   });
 
   $("body").on("keyup", ".abracadabra-input-container input", function(e) {
     // Press Tab to submit (same function as Enter key)
     if (e.keyCode == 9)
     {
+      console.log("tab pressed");
       e.preventDefault();
       $(this.form).submit();
     }
@@ -26,7 +33,7 @@ $(function() {
     if (e.keyCode == 27)
     {
       e.preventDefault();
-      cancelAbracadabra(this);
+      closeAbracadabra(this);
     }
   });
   
