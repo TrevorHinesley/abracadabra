@@ -1,6 +1,6 @@
 # Abracadabra
 
-A lightweight gem for swapping out text with a fully-compliant Rails form in one click.
+A lightweight gem for swapping out text with a fully-compliant Rails 4 form in one click.
 
 Much of the concepts and html mark-up were taken from the awesome [x-editable](http://vitalets.github.io/x-editable/) plugin and the Rails version of this, [x-editable-rails](https://github.com/werein/x-editable-rails). However, this was written from the ground up and uses fully Rails-compliant forms without hacking into x-editable's core files, or overriding them.
 
@@ -88,6 +88,10 @@ type: :js
 1. I would love anyone to add date pickers and other alternate field types to this.
 
 2. I would love the different Bootstrap classes to be overridable with an initializer (config/abracadabra.rb) so that any framework could be used. Same with the Font-Awesome button classes.
+
+3. I would love for a `buttons: false` option to be offered that would allow only `Tab`, `Enter` and `Escape` to submit or cancel the form submission.
+
+4. I would love for a `tabbable: true` option to be offered that would tab to the next text input with the `abracadabra` class.
 
 Any other ideas, feel free to contribute!
 
