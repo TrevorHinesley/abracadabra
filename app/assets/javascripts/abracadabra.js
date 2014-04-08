@@ -1,7 +1,7 @@
 $(function() {
   function cancelAbracadabra(element) {
     container = $(element).parents(".abracadabra-container");
-    value = container.find(".abracadabra-input").val();
+    value = container.find(".abracadabra-input-container input").val();
     container.siblings(".abracadabra").text(value).show();
     container.remove();
   }
@@ -14,7 +14,7 @@ $(function() {
     cancelAbracadabra(this);
   });
 
-  $("body").on("keyup", ".abracadabra-input input", function(e) {
+  $("body").on("keyup", ".abracadabra-input-container input", function(e) {
     // Press Tab to submit (same function as Enter key)
     if (e.keyCode == 9)
     {
@@ -57,7 +57,7 @@ $(function() {
     input = "<input type=\"text\" class=\"form-control\" id=\"" + inputId + "\" name=\"" + inputName + "\" value=\"" + inputValue + "\">";
     
     html = "<span class=\"abracadabra-container abracadabra-inline\">" + openFormTag + hiddenMethodTags;
-    html += "<div class=\"control-group\"><div class=\"abracadabra-input-and-button-wrapper\"><div class=\"abracadabra-input\">" + input + "</div>";
+    html += "<div class=\"control-group\"><div class=\"abracadabra-input-and-button-wrapper\"><div class=\"abracadabra-input-container\">" + input + "</div>";
     html += "<div class=\"abracadabra-buttons\">" + buttons + "</div></div></form></span>";
 
     link.after(html);

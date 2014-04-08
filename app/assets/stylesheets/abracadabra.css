@@ -10,12 +10,12 @@
 
 .abracadabra-container { display: block; }
 
-.abracadabra-container > form > .control-group > .abracadabra-input-and-button-wrapper > .abracadabra-input {
+.abracadabra-container > .abracadabra-form > .control-group > .abracadabra-input-and-button-wrapper > .abracadabra-input-container {
   width: 60%;
   display: inline-block;
 }
 
-.abracadabra-container > form > .control-group > .abracadabra-input-and-button-wrapper > .abracadabra-buttons {
+.abracadabra-container > .abracadabra-form > .control-group > .abracadabra-input-and-button-wrapper > .abracadabra-buttons {
   width: 40%;
   display: inline-block;
 }
