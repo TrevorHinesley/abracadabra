@@ -1,9 +1,10 @@
 $(function() {
   function closeAbracadabra(element) {
+    $element = $(element);
     if(element.hasClass("abracadabra-container")) {
-      container = $(element);
+      container = element;
     } else {
-      container = $(element).parents(".abracadabra-container");
+      container = element.parents(".abracadabra-container");
     }
     value = container.find(".abracadabra-input-container input").val();
     container.siblings(".abracadabra").text(value).show();
