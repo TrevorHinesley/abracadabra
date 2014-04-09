@@ -17,7 +17,11 @@ $(function() {
       container.siblings(".abracadabra").text(value).show();
     }
 
-    container.remove();
+    try {
+      container.remove();
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   $("body").on("submit", ".abracadabra-form", function(e) {
@@ -63,7 +67,6 @@ $(function() {
     }
   });
 
-
   $("body").on("keydown", ".abracadabra-input", function(e) {
     /* Press Tab to submit (same function as Enter key) */
     if (e.keyCode == 9)
@@ -80,7 +83,6 @@ $(function() {
     {
       e.preventDefault();
       if(abracadabraSubmissionInProgress == false) {
-        $(this).off("blur");
         closeAbracadabra(this, false);
       }
     }
