@@ -40,21 +40,15 @@ $(function() {
     abracadabraDeleteMousedown = true;
   });
 
-  $("body").on("ajax:complete", ".abracadabra-delete", function() {
-    abracadabraSubmissionInProgress = false;
-    abracadabraDeleteMousedown = false;
-  });
-
-  $("body").on("ajax:complete", ".abracadabra-form", function() {
-    abracadabraSubmissionInProgress = false;
-  });
-
   $("body").on("ajax:success", ".abracadabra-form", function(e) {
     closeAbracadabra(this, false);
+    abracadabraSubmissionInProgress = false;
   });
 
   $("body").on("ajax:success", ".abracadabra-delete", function() {
     closeAbracadabra(this, true);
+    abracadabraSubmissionInProgress = false;
+    abracadabraDeleteMousedown = false;
   });
 
   $("body").on("click", ".abracadabra-cancel", function() {
