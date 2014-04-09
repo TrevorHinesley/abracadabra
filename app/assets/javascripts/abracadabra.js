@@ -12,10 +12,12 @@ $(function() {
 
     if(destroy) {
       container.siblings(".abracadabra").remove();
-      container.remove();
     } else {
       value = container.find(".abracadabra-input").val();
       container.siblings(".abracadabra").text(value).show();
+    }
+    
+    if(container.length) {
       container.remove();
     }
   }
