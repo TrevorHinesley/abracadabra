@@ -31,19 +31,21 @@ $(function() {
 
 
   $("body").on("keydown", ".abracadabra-input", function(e) {
-    // Press Tab to submit (same function as Enter key)
+    /* Press Tab to submit (same function as Enter key) */
     if (e.keyCode == 9)
     {
       e.preventDefault();
       $(this.form).submit();
     }
+    /* /Press Tab to submit (same function as Enter key) */
 
-    // Press Escape to cancel
+    /* Press Escape to cancel */
     if (e.keyCode == 27)
     {
       e.preventDefault();
       closeAbracadabra(this, false);
     }
+    /* /Press Escape to cancel */
   });
   
   $(".abracadabra").on("click", function() {
@@ -54,7 +56,7 @@ $(function() {
     formMethod = link.data("method");
     remote = ((link.data("remote") == true) ? " data-remote=\"true\"" : "");
 
-    // Check if button classes have been manually overridden elsewhere
+    /* Check if button classes have been manually overridden elsewhere */
     if(typeof abracadabraSubmitIcon == "undefined") {
       abracadabraSubmitIcon = "fa fa-check";
     }
@@ -66,15 +68,18 @@ $(function() {
     if(typeof abracadabraDeleteIcon == "undefined") {
       abracadabraDeleteIcon = "fa fa-times-circle-o";
     }
-    // /Check if button classes have been manually overridden elsewhere
+    /* /Check if button classes have been manually overridden elsewhere */
 
+    /* Deletable? */
     if(link.data("deletable") == true) {
       deletablePath = link.data("deletable-path");
       deletable = "<span class=\"abracadabra-delete-container\"><a href=\"" + deletablePath + "\" class=\"abracadabra-delete\" data-method=\"delete\"" + remote + " rel=\"nofollow\"><i class=\"" + abracadabraDeleteIcon + "\"></i></a></span>";
     } else {
       deletable = "";
     }
+    /* /Deletable? */
 
+    /* AJAX? */
     if(remote == "") {
       authToken = "<input name=\"authenticity_token\" type=\"hidden\" value=\"" + $("meta[name=\"csrf-token\"]").attr("content") + "\">";
       type = "";
@@ -82,13 +87,21 @@ $(function() {
       authToken = "";
       type = " data-type=\"" + link.data("type") + "\"";
     }
+    /* /AJAX? */
+
+    /* Show buttons? */
+    if(link.data("buttonless") == true) {
+      buttons = "";
+    } else {
+      buttons = "<button type=\"submit\" class=\"btn btn-primary abracadabra-submit\"><i class=\"" + abracadabraSubmitIcon + "\"></i></button><button type=\"button\" class=\"btn abracadabra-cancel\"><i class=\"" + abracadabraCancelIcon + "\"></i></button>";
+    }
+    /* /Show buttons? */
 
     instanceClass = link.data("class");
     inputValue = link.text().replace(/"|\\"/g, "&quot;");
     inputId = instanceClass + "_" + attribute;
     inputName = instanceClass + "[" + attribute + "]";
 
-    buttons = "<button type=\"submit\" class=\"btn btn-primary abracadabra-submit\"><i class=\"" + abracadabraSubmitIcon + "\"></i></button><button type=\"button\" class=\"btn abracadabra-cancel\"><i class=\"" + abracadabraCancelIcon + "\"></i></button>";
     openFormTag = "<form accept-charset=\"UTF-8\" action=\"" + path + "\"" + remote + type + " class=\"form-inline abracadabra-form\" method=\"post\">";
     hiddenMethodTags = "<div style=\"display:none;\"><input name=\"utf8\" type=\"hidden\" value=\"&#10003;\"><input name=\"_method\" type=\"hidden\" value=\"" + formMethod + "\">" + authToken + "</div>";
     input = "<input type=\"text\" class=\"form-control abracadabra-input\" id=\"" + inputId + "\" name=\"" + inputName + "\" value=\"" + inputValue + "\">";

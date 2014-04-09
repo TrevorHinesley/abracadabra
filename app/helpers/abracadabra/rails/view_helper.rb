@@ -7,6 +7,7 @@ module Abracadabra
         value = options[:value] || instance.send(options[:attribute])
         method = options[:method] || "patch"
         path = options[:path]
+        buttonless = options[:buttonless] || false
         deletable = options[:deletable] || false
         deletable_path = options[:deletable_path] || path
 
@@ -26,7 +27,8 @@ module Abracadabra
             path: path, 
             attribute: options[:attribute], 
             class: instance_class, 
-            type: data_type.to_sym, 
+            type: data_type.to_sym,
+            buttonless: buttonless, 
             deletable: deletable,
             deletable_path: deletable_path
           }, 
