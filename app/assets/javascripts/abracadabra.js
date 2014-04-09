@@ -29,6 +29,10 @@ $(function() {
     closeAbracadabra(this, false);
   });
 
+  $("body").on("blur", ".abracadabra-input", function() {
+    closeAbracadabra(this, false);
+  });
+
 
   $("body").on("keydown", ".abracadabra-input", function(e) {
     /* Press Tab to submit (same function as Enter key) */
