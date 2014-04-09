@@ -20,7 +20,9 @@ $(function() {
     try {
       container.remove();
     } catch (error) {
-      console.log(error)
+      if(error.name != "NotFoundError") {
+        throw error;
+      }
     }
   }
 
