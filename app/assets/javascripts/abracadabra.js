@@ -1,23 +1,34 @@
 $(function() {
-  function closeAbracadabra(element) {
+  function closeAbracadabra(element, destroy) {
     $element = $(element);
     if($element.hasClass("abracadabra-container")) {
       container = $element;
     } else {
       container = $element.parents(".abracadabra-container");
     }
-    value = container.find(".abracadabra-input").val();
-    container.siblings(".abracadabra").text(value).show();
-    container.remove();
+
+    if(destroy) {
+      container.siblings(".abracadabra").remove();
+      container.remove();
+    } else {
+      value = container.find(".abracadabra-input").val();
+      container.siblings(".abracadabra").text(value).show();
+      container.remove();
+    }
   }
 
   $("body").on("ajax:success", ".abracadabra-form", function(e) {
-    closeAbracadabra(this);
+    closeAbracadabra(this, false);
   })
 
-  $("body").on("click", ".abracadabra-cancel", function() {
-    closeAbracadabra(this);
+  $("body").on("ajax:success", ".abracadabra-delete", function() {
+    closeAbracadabra(this, true);
   });
+
+  $("body").on("click", ".abracadabra-cancel", function() {
+    closeAbracadabra(this, false);
+  });
+
 
   $("body").on("keydown", ".abracadabra-input", function(e) {
     // Press Tab to submit (same function as Enter key)
@@ -31,7 +42,7 @@ $(function() {
     if (e.keyCode == 27)
     {
       e.preventDefault();
-      closeAbracadabra(this);
+      closeAbracadabra(this, false);
     }
   });
   
@@ -82,7 +93,7 @@ $(function() {
     hiddenMethodTags = "<div style=\"display:none;\"><input name=\"utf8\" type=\"hidden\" value=\"&#10003;\"><input name=\"_method\" type=\"hidden\" value=\"" + formMethod + "\">" + authToken + "</div>";
     input = "<input type=\"text\" class=\"form-control abracadabra-input\" id=\"" + inputId + "\" name=\"" + inputName + "\" value=\"" + inputValue + "\">";
     
-    html = "<span class=\"abracadabra-container abracadabra-inline\">" + openFormTag + hiddenMethodTags;
+    html = "<span class=\"abracadabra-container\">" + openFormTag + hiddenMethodTags;
     html += "<div class=\"control-group\"><div class=\"abracadabra-input-and-button-wrapper\"><div class=\"abracadabra-input-container\">" + input + deletable + "</div>";
     html += "<div class=\"abracadabra-buttons\">" + buttons + "</div></div></form></span>";
 

@@ -79,8 +79,17 @@ remote: true
 # IMPORTANT: `type` will be ignored if `remote = false` is used. HTML is the default 
 # in Rails for standard form submissions.
 type: :js
-# Content type -- responds to any content types (:js and :script can both be used to respond with Javascript).
+# Content type -- responds to any content type (:js and :script can both be used to respond with Javascript).
 # Default: :script (:js)
+
+# IMPORTANT: On ajax:success, this will remove the specific abracadabra instance from the DOM entirely
+deletable: true
+# Puts a link to DELETE the object (obviously, it always uses DELETE as the HTTP verb).
+# Default: false
+
+deletable_path: user_path(@user)
+# Specifies where the form will be submitted. 
+# Default: path (uses the same path as the main form if `deletable_path` isn't declared).
 ```
 
 ## Configuration
@@ -96,6 +105,8 @@ abracadabraCancelIcon = "fa fa-times"; // default
 
 abracadabraDeleteIcon = "fa fa-times-circle-o"; // default
 ```
+
+
 
 ## Future & Contributing
 
