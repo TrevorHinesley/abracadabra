@@ -16,8 +16,10 @@ $(function() {
       value = container.find(".abracadabra-input").val();
       container.siblings(".abracadabra").text(value).show();
     }
-    console.log(container);
-    container.remove();
+    
+    if(container.is(":visible")) {
+      container.remove();
+    }
   }
 
   $("body").on("submit", ".abracadabra-form", function(e) {
