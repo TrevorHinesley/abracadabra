@@ -111,6 +111,6 @@ $(function() {
     html += "<div class=\"abracadabra-buttons\">" + buttons + "</div></div></form></span>";
 
     link.after(html);
-    link.siblings(".abracadabra-container").find(".abracadabra-input").focus();
+    link.siblings(".abracadabra-container").find(".abracadabra-input").focus().val("").val(inputValue);
   });
 });
