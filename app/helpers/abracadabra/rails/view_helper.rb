@@ -6,6 +6,9 @@ module Abracadabra
         link_class = "#{options[:class]} abracadabra".strip
         value = options[:value] || instance.send(options[:attribute])
         method = options[:method] || "patch"
+        path = options[:path]
+        deletable = options[:deletable] || false
+        deletable_path = options[:deletable_path] || path
 
         if !options[:remote].nil? && options[:remote] == false
           remote = false
@@ -15,7 +18,20 @@ module Abracadabra
 
         data_type = options[:type].to_s.gsub(/^j+s+$/, "script") || "script"
 
-        link_to value, "javascript:void(0)", class: link_class, method: method.to_sym, data: { path: options[:path], attribute: options[:attribute], class: instance_class, type: data_type.to_sym }, remote: remote
+        link_to(
+          value,
+          "javascript:void(0)", 
+          class: link_class, method: method.to_sym, 
+          data: { 
+            path: path, 
+            attribute: options[:attribute], 
+            class: instance_class, 
+            type: data_type.to_sym, 
+            deletable: deletable,
+            deletable_path: deletable_path
+          }, 
+          remote: remote
+        )
       end
     end
   end

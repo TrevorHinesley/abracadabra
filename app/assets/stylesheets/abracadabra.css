@@ -1,21 +1,22 @@
-.abracadabra {
-  border-bottom: 1px dashed;
-  color: #428bca;
-}
+.abracadabra { border-bottom: 1px dashed; }
 
-.abracadabra:hover {
-  text-decoration: none;
-  color: darken(#428bca, 10%);
-}
+.abracadabra:hover { text-decoration: none; }
 
 .abracadabra-container { display: block; }
 
 .abracadabra-container > .abracadabra-form > .control-group > .abracadabra-input-and-button-wrapper > .abracadabra-input-container {
   width: 60%;
   display: inline-block;
+  position: relative;
 }
 
 .abracadabra-container > .abracadabra-form > .control-group > .abracadabra-input-and-button-wrapper > .abracadabra-buttons {
   width: 40%;
   display: inline-block;
+}
+
+.abracadabra-container > .abracadabra-form > .control-group > .abracadabra-input-and-button-wrapper > .abracadabra-input-container > .abracadabra-delete-container {
+  position: absolute;
+  top: 50%;
+  right: 6px;
 }
