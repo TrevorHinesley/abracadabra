@@ -75,7 +75,9 @@ $(function() {
     if (e.keyCode == 9)
     {
       e.preventDefault();
-      $(this.form).submit();
+      if(abracadabraSubmissionInProgress == false) {
+        $(this.form).submit();
+      }
     }
     /* /Press Tab to submit (same function as Enter key) */
 
@@ -83,7 +85,9 @@ $(function() {
     if (e.keyCode == 27)
     {
       e.preventDefault();
-      closeAbracadabra(this, false);
+      if(abracadabraSubmissionInProgress == false) {
+        closeAbracadabra(this, false);
+      }
     }
     /* /Press Escape to cancel */
   });
