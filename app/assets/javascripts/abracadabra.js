@@ -16,10 +16,8 @@ $(function() {
       value = container.find(".abracadabra-input").val();
       container.siblings(".abracadabra").text(value).show();
     }
-    
-    if(container.is(":visible")) {
-      container.remove();
-    }
+
+    container.remove();
   }
 
   $("body").on("submit", ".abracadabra-form", function(e) {
@@ -82,6 +80,7 @@ $(function() {
     {
       e.preventDefault();
       if(abracadabraSubmissionInProgress == false) {
+        $(this).unbind("blur");
         closeAbracadabra(this, false);
       }
     }
