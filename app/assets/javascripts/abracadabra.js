@@ -1,4 +1,7 @@
 $(function() {
+  abracadabraSubmissionInProgress = false;
+  abracadabraDeleteMousedown = false;
+
   function closeAbracadabra(element, destroy) {
     $element = $(element);
     if($element.hasClass("abracadabra-container")) {
@@ -17,20 +20,53 @@ $(function() {
     }
   }
 
+  $("body").on("submit", ".abracadabra-form", function(e) {
+    if(abracadabraSubmissionInProgress == true) {
+      e.preventDefault();
+      return false;
+    }
+    abracadabraSubmissionInProgress = true;
+  });
+
+  $("body").on("ajax:before", ".abracadabra-delete", function() {
+    if(abracadabraSubmissionInProgress == true) {
+      e.preventDefault();
+      return false;
+    }
+    abracadabraSubmissionInProgress = true;
+  });
+
+  $("body").on("mousedown", ".abracadabra-delete", function() {
+    abracadabraDeleteMousedown = true;
+  });
+
+  $("body").on("ajax:complete", ".abracadabra-delete", function() {
+    abracadabraSubmissionInProgress = false;
+    abracadabraDeleteMousedown = false;
+  });
+
+  $("body").on("ajax:complete", ".abracadabra-form", function() {
+    abracadabraSubmissionInProgress = false;
+  });
+
   $("body").on("ajax:success", ".abracadabra-form", function(e) {
     closeAbracadabra(this, false);
-  })
+  });
 
   $("body").on("ajax:success", ".abracadabra-delete", function() {
     closeAbracadabra(this, true);
   });
 
   $("body").on("click", ".abracadabra-cancel", function() {
-    closeAbracadabra(this, false);
+    if(abracadabraSubmissionInProgress == false) {
+      closeAbracadabra(this, false);
+    }
   });
 
   $("body").on("blur", ".abracadabra-input", function() {
-    closeAbracadabra(this, false);
+    if(abracadabraSubmissionInProgress == false && abracadabraDeleteMousedown == false) {
+      closeAbracadabra(this, false);
+    }
   });
 
 
