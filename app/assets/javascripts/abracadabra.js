@@ -80,7 +80,7 @@ $(function() {
     {
       e.preventDefault();
       if(abracadabraSubmissionInProgress == false) {
-        $(this).unbind("blur");
+        $(this).off("blur");
         closeAbracadabra(this, false);
       }
     }
