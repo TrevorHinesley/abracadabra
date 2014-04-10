@@ -10,7 +10,16 @@ module Abracadabra
         buttonless = options[:buttonless] || false
         deletable = options[:deletable] || false
         deletable_path = options[:deletable_path] || path
-        tab_to_next = options[:tab_to_next] || false 
+
+        if options[:tab_to_next] || options[:tab_to_next] != false
+          if options[:tab_to_next] == true
+            tab_to_next = ".abracadabra"
+          else
+            tab_to_next = options[:tab_to_next]
+          end
+        else
+          tab_to_next = false
+        end 
 
         if !options[:remote].nil? && options[:remote] == false
           remote = false

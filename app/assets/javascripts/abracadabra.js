@@ -26,6 +26,25 @@ $(function() {
     }
   }
 
+  function tabToNextAbracadabra(element, selector) {
+    if(selector != undefined) {
+      nextAbracadabra = $(selector);
+
+      /* If selector isn't an ID, find the element with the class AFTER the current element */
+      if (selector.indexOf("#") == -1) {
+        abracadabra = $(element).parents(".abracadabra-container").siblings(".abracadabra");
+        indexOfAbracadabra = $(selector).index(abracadabra);
+        nextAbracadabra = $($(selector)[indexOfAbracadabra + 1]);
+      }
+      /* /If selector isn't an ID, find the element with the class AFTER the current element */
+
+      closeAbracadabra(element, false);
+      nextAbracadabra.click();
+    } else {
+      closeAbracadabra(element, false);
+    }
+  }
+
   $("body").on("submit", ".abracadabra-form", function(e) {
     if(abracadabraSubmissionInProgress == true) {
       e.preventDefault();
@@ -47,7 +66,9 @@ $(function() {
   });
 
   $("body").on("ajax:success", ".abracadabra-form", function(e) {
-    closeAbracadabra(this, false);
+    input = $(this).find(".abracadabra-input")
+    tabToNextSelector = input.data("tab-to-next-selector");
+    tabToNextAbracadabra(this, tabToNextSelector);
     abracadabraSubmissionInProgress = false;
   });
 
@@ -139,6 +160,16 @@ $(function() {
     }
     /* /Deletable? */
 
+    /* Tab to next? */
+    tabToNextSelector = link.data("tab-to-next");
+    if(tabToNextSelector !== false) {
+      tabToNextSelector = link.data("tab-to-next");
+      tabToNextSelector = " data-tab-to-next-selector=\"" + tabToNextSelector + "\"";
+    } else {
+      tabToNextSelector = "";
+    }
+    /* /Tab to next? */
+
     /* AJAX? */
     if(remote == "") {
       authToken = "<input name=\"authenticity_token\" type=\"hidden\" value=\"" + $("meta[name=\"csrf-token\"]").attr("content") + "\">";
@@ -164,7 +195,7 @@ $(function() {
 
     openFormTag = "<form accept-charset=\"UTF-8\" action=\"" + path + "\"" + remote + type + " class=\"form-inline abracadabra-form\" method=\"post\">";
     hiddenMethodTags = "<div style=\"display:none;\"><input name=\"utf8\" type=\"hidden\" value=\"&#10003;\"><input name=\"_method\" type=\"hidden\" value=\"" + formMethod + "\">" + authToken + "</div>";
-    input = "<input type=\"text\" class=\"form-control abracadabra-input\" id=\"" + inputId + "\" name=\"" + inputName + "\" value=\"" + inputValue + "\">";
+    input = "<input type=\"text\" class=\"form-control abracadabra-input\" id=\"" + inputId + "\" name=\"" + inputName + "\" value=\"" + inputValue + "\"" + tabToNextSelector + ">";
     
     html = "<span class=\"abracadabra-container\">" + openFormTag + hiddenMethodTags;
     html += "<div class=\"control-group\"><div class=\"abracadabra-input-and-button-wrapper\"><div class=\"abracadabra-input-container\">" + input + deletable + "</div>";

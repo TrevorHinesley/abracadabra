@@ -101,6 +101,16 @@ deletable: "Are you sure?"
 deletable_path: user_path(@user)
 # Specifies where the form will be submitted. 
 # Default: path (uses the same path as the main form if `deletable_path` isn't declared).
+
+# Boolean: Find the next abracadabra instance by using `.abracadabra` as the selector.
+tab_to_next: true
+# OR
+# String: The class or ID of the next abracadabra instance. Use `.` before a class 
+# selector or `#` before a an ID selector just as you would when finding an element
+# in Javascript.
+# IMPORTANT: If this is a class, this abracadabra instance MUST have the same class
+# as well.
+tab_to_next: ".my-class"
 ```
 
 ## Configuration
