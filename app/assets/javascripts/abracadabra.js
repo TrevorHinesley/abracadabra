@@ -90,6 +90,17 @@ $(function() {
     }
     /* /Press Escape to cancel */
   });
+
+
+  $("body").on("confirm:complete", ".abracadabra-delete", function(e, response) {
+    /* If cancel is clicked in the deletable_confirm dialog, focus on the input */
+    if(response == false) {
+      input = $(this).parents(".abracadabra-delete-container").siblings();
+      inputValue = input.val();
+      input.focus().val("").val(inputValue);
+    }
+    /* /If cancel is clicked in the deletable_confirm dialog, focus on the input */
+  });
   
   $(".abracadabra").on("click", function() {
     link = $(this);
