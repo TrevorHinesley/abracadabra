@@ -30,7 +30,7 @@ module Abracadabra
         end
 
         data_type = options[:type].to_s.gsub(/^j+s+$/, "script") || "script"
-        deletable_type = options[:deletable_type] || "script"
+        deletable_type = options[:deletable_type].to_s.gsub(/^j+s+$/, "script") || "script"
 
         link_to(
           value,
