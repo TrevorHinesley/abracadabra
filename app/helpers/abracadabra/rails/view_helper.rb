@@ -10,7 +10,7 @@ module Abracadabra
         path = options[:path]
         buttonless = options[:buttonless] || false
         deletable = options[:deletable] || false
-        deletable_path = options[:deletable_path] || path
+        deletable_path = options[:deletable_path] || path 
         submit_on_blur = options[:submit_on_blur] || false
 
         if options[:tab_to_next] || options[:tab_to_next] != false
@@ -30,6 +30,7 @@ module Abracadabra
         end
 
         data_type = options[:type].to_s.gsub(/^j+s+$/, "script") || "script"
+        deletable_type = options[:deletable_type] || "script"
 
         link_to(
           value,
@@ -45,6 +46,7 @@ module Abracadabra
             buttonless: buttonless, 
             deletable: deletable,
             deletable_path: deletable_path,
+            deletable_type: deletable_type.to_sym,
             tab_to_next: tab_to_next,
             submit_on_blur: submit_on_blur
           }, 

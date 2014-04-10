@@ -153,6 +153,18 @@ $(function() {
     }
     /* /Check if button classes have been manually overridden elsewhere */
 
+    /* AJAX? */
+    if(remote == "") {
+      authToken = "<input name=\"authenticity_token\" type=\"hidden\" value=\"" + $("meta[name=\"csrf-token\"]").attr("content") + "\">";
+      type = "";
+      deletableType = "";
+    } else {
+      authToken = "";
+      type = " data-type=\"" + link.data("type") + "\"";
+      deletableType = " data-type=\"" + link.data("deletable-type") + "\"";
+    }
+    /* /AJAX? */
+
     /* Deletable? */
     if(link.data("deletable") !== false) {
       deletablePath = link.data("deletable-path");
@@ -162,7 +174,7 @@ $(function() {
       } else {
         deletableConfirm = " data-confirm=\"" + deletableConfirm + "\"";
       }
-      deletable = "<span class=\"abracadabra-delete-container\"><a href=\"" + deletablePath + "\" class=\"abracadabra-delete\" data-method=\"delete\"" + deletableConfirm + remote + " rel=\"nofollow\"><i class=\"" + abracadabraDeleteIcon + "\"></i></a></span>";
+      deletable = "<span class=\"abracadabra-delete-container\"><a href=\"" + deletablePath + "\" class=\"abracadabra-delete\" data-method=\"delete\"" + deletableConfirm + remote + deletableType + " rel=\"nofollow\"><i class=\"" + abracadabraDeleteIcon + "\"></i></a></span>";
     } else {
       deletable = "";
     }
@@ -186,16 +198,6 @@ $(function() {
       submitOnBlur = "";
     }
     /* /Submit on blur? */
-
-    /* AJAX? */
-    if(remote == "") {
-      authToken = "<input name=\"authenticity_token\" type=\"hidden\" value=\"" + $("meta[name=\"csrf-token\"]").attr("content") + "\">";
-      type = "";
-    } else {
-      authToken = "";
-      type = " data-type=\"" + link.data("type") + "\"";
-    }
-    /* /AJAX? */
 
     /* Show buttons? */
     if(link.data("buttonless") == true) {

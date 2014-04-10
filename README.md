@@ -94,7 +94,7 @@ type: :js
 # Default: :script (:js)
 
 # IMPORTANT: On ajax:success, this will remove the specific abracadabra instance from 
-# the DOM entirely.
+# the DOM entirely. ALSO, this will be remote if the main form is remote.
 deletable: true
 # Boolean: DELETE will be submitted without a confirmation dialog
 # OR
@@ -108,6 +108,11 @@ deletable: "Are you sure?"
 deletable_path: user_path(@user)
 # Description: Specifies where the form will be submitted. 
 # Default: path (uses the same path as the main form if `deletable_path` isn't declared).
+
+deletable_type: :js
+# Description: Deletable content type -- responds to any content type (:js and :script
+# can both be used to respond with Javascript).
+# Default: :script (:js)
 
 # Boolean: Open the next abracadabra instance after successful form submission (main 
 # form, not the DELETE link's submission) by using `.abracadabra` as the selector.
