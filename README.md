@@ -116,7 +116,7 @@ tab_to_next: true
 tab_to_next: ".my-class"
 # IMPORTANT: If this is a class, this abracadabra instance MUST have the same class
 # as well.
-# String: The class or ID of the next abracadabra instance to open on succesful form 
+# String: The class or ID of the next abracadabra instance to open on successful form 
 # submission. Use `.` before a class selector or `#` before a an ID selector just as you 
 # would when finding an element in Javascript.
 # Description: Puts a link to DELETE the object (obviously, it always uses DELETE as the 
