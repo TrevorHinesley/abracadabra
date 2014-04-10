@@ -4,6 +4,7 @@ module Abracadabra
       def click_to_edit(instance, options)
         instance_class = instance.class.to_s.underscore
         link_class = "#{options[:class]} abracadabra".strip
+        link_id = options[:id] || nil
         value = options[:value] || instance.send(options[:attribute])
         method = options[:method] || "patch"
         path = options[:path]
@@ -33,7 +34,9 @@ module Abracadabra
         link_to(
           value,
           "javascript:void(0)", 
-          class: link_class, method: method.to_sym, 
+          class: link_class,
+          id: link_id, 
+          method: method.to_sym, 
           data: { 
             path: path, 
             attribute: options[:attribute], 

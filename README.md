@@ -61,9 +61,13 @@ attribute: :name
 
 ### OPTIONAL ###
 class: "my-class"
-# Description: Class(es) to be added to the text input of the form. The class 
+# Description: Class(es) to be added to the abracadabra link. The class 
 # "abracadabra" is added # either way.
 # Default: only "abracadabra"
+
+id: "my-id"
+# Description: ID to be added to the abracadabra link.
+# Default: nil (No ID)
 
 value: "blah"
 # Description: An alternate value, other than what object.attribute would return.
