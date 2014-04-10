@@ -95,6 +95,10 @@ deletable: true
 deletable_path: user_path(@user)
 # Specifies where the form will be submitted. 
 # Default: path (uses the same path as the main form if `deletable_path` isn't declared).
+
+deletable_confirm: "Are you sure?"
+# Requires confirmation from the user before the DELETE action is submitted.
+# Default: nil (No confirmation required)
 ```
 
 ## Configuration

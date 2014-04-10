@@ -116,7 +116,13 @@ $(function() {
     /* Deletable? */
     if(link.data("deletable") == true) {
       deletablePath = link.data("deletable-path");
-      deletable = "<span class=\"abracadabra-delete-container\"><a href=\"" + deletablePath + "\" class=\"abracadabra-delete\" data-method=\"delete\"" + remote + " rel=\"nofollow\"><i class=\"" + abracadabraDeleteIcon + "\"></i></a></span>";
+      deletableConfirm = link.data("deletable-confirm");
+      if(deletableConfirm == null) {
+        deletableConfirm = "";
+      } else {
+        deletableConfirm = " data-confirm=\"" + deletableConfirm + "\"";
+      }
+      deletable = "<span class=\"abracadabra-delete-container\"><a href=\"" + deletablePath + "\" class=\"abracadabra-delete\" data-method=\"delete\"" + deletableConfirm + remote + " rel=\"nofollow\"><i class=\"" + abracadabraDeleteIcon + "\"></i></a></span>";
     } else {
       deletable = "";
     }
