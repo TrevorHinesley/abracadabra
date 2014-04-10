@@ -61,7 +61,7 @@ attribute: :name
 
 ### OPTIONAL ###
 class: "my-class"
-# Class(es) to be added to the text input of the form. The class "abracadabra" is added either way.
+# Class(es) to be added to the text input of the form. The class "abracadabra" is added # either way.
 # Default: only "abracadabra"
 
 value: "blah"
@@ -87,18 +87,20 @@ type: :js
 # Content type -- responds to any content type (:js and :script can both be used to respond with Javascript).
 # Default: :script (:js)
 
-# IMPORTANT: On ajax:success, this will remove the specific abracadabra instance from the DOM entirely
+# IMPORTANT: On ajax:success, this will remove the specific abracadabra instance from 
+# the DOM entirely.
+# Boolean: DELETE will be submitted without a confirmation dialog
 deletable: true
+# OR
+# String: Confirmation dialog, with the string as the message, will be displayed after 
+# clicking the DELETE link
+deletable: "Are you sure?"
 # Puts a link to DELETE the object (obviously, it always uses DELETE as the HTTP verb).
 # Default: false
 
 deletable_path: user_path(@user)
 # Specifies where the form will be submitted. 
 # Default: path (uses the same path as the main form if `deletable_path` isn't declared).
-
-deletable_confirm: "Are you sure?"
-# Requires confirmation from the user before the DELETE action is submitted.
-# Default: nil (No confirmation required)
 ```
 
 ## Configuration

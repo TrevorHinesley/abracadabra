@@ -125,10 +125,10 @@ $(function() {
     /* /Check if button classes have been manually overridden elsewhere */
 
     /* Deletable? */
-    if(link.data("deletable") == true) {
+    if(link.data("deletable") !== false) {
       deletablePath = link.data("deletable-path");
-      deletableConfirm = link.data("deletable-confirm");
-      if(deletableConfirm == null) {
+      deletableConfirm = link.data("deletable");
+      if(deletableConfirm === true) {
         deletableConfirm = "";
       } else {
         deletableConfirm = " data-confirm=\"" + deletableConfirm + "\"";

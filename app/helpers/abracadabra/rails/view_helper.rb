@@ -10,8 +10,8 @@ module Abracadabra
         buttonless = options[:buttonless] || false
         deletable = options[:deletable] || false
         deletable_path = options[:deletable_path] || path
-        deletable_confirm = options[:deletable_confirm].to_s || nil
-        
+        tab_to_next = options[:tab_to_next] || false 
+
         if !options[:remote].nil? && options[:remote] == false
           remote = false
         else
@@ -32,7 +32,7 @@ module Abracadabra
             buttonless: buttonless, 
             deletable: deletable,
             deletable_path: deletable_path,
-            deletable_confirm: deletable_confirm
+            tab_to_next: tab_to_next
           }, 
           remote: remote
         )
