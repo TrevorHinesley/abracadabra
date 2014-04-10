@@ -66,17 +66,20 @@ $(function() {
   });
 
   $("body").on("ajax:success", ".abracadabra-form", function(e) {
-    input = $(this).find(".abracadabra-input")
-    tabToNextSelector = input.data("tab-to-next-selector");
-    tabToNextAbracadabra(this, tabToNextSelector);
-    abracadabraSubmissionInProgress = false;
-    console.log(".abracadabra-form");
-  });
+    target = $(e.target);
 
-  $("body").on("ajax:success", ".abracadabra-delete", function() {
-    closeAbracadabra(this, true);
+    /* If form is a DELETE, remove abracadabra instance, if not, call tabToNextSelector */
+    if(target.hasClass("abracadabra-delete")) {
+      closeAbracadabra(target, true);
+      abracadabraDeleteMousedown = false;
+    } else {
+      input = $(target).find(".abracadabra-input");
+      tabToNextSelector = input.data("tab-to-next-selector");
+      tabToNextAbracadabra(target, tabToNextSelector);
+    }
+    /* /If form is a DELETE, remove abracadabra instance, if not, call tabToNextSelector */
+
     abracadabraSubmissionInProgress = false;
-    abracadabraDeleteMousedown = false;
   });
 
   $("body").on("click", ".abracadabra-cancel", function() {
