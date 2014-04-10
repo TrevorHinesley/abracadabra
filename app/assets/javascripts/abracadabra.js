@@ -1,6 +1,7 @@
 $(function() {
   abracadabraSubmissionInProgress = false;
   abracadabraDeleteMousedown = false;
+  abracadabraEscapeKeydown = true;
 
   function closeAbracadabra(element, destroy, valueChanged) {
     $element = $(element);
@@ -50,8 +51,9 @@ $(function() {
   }
 
   $("body").on("submit", ".abracadabra-form", function(e) {
-    if(abracadabraSubmissionInProgress == true) {
+    if(abracadabraSubmissionInProgress == true || abracadabraEscapeKeydown == true) {
       e.preventDefault();
+      abracadabraEscapeKeydown = false;
       return false;
     }
     abracadabraSubmissionInProgress = true;
@@ -116,6 +118,7 @@ $(function() {
     /* Press Escape to cancel */
     if (e.keyCode == 27)
     {
+      abracadabraEscapeKeydown = true;
       e.preventDefault();
       if(abracadabraSubmissionInProgress == false) {
         closeAbracadabra(this, false, false);
@@ -136,6 +139,10 @@ $(function() {
   });
   
   $(".abracadabra").on("click", function() {
+    if($(".abracadabra-container:visible").length) {
+      return false;
+    }
+
     link = $(this);
     link.hide();
     path = link.data("path");
