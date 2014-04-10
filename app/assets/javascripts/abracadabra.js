@@ -1,7 +1,7 @@
 $(function() {
   abracadabraSubmissionInProgress = false;
   abracadabraDeleteMousedown = false;
-  abracadabraEscapeKeydown = true;
+  abracadabraEscapeKeydown = false;
 
   function closeAbracadabra(element, destroy, valueChanged) {
     $element = $(element);
@@ -52,6 +52,7 @@ $(function() {
 
   $("body").on("submit", ".abracadabra-form", function(e) {
     if(abracadabraSubmissionInProgress == true || abracadabraEscapeKeydown == true) {
+      console.log(abracadabraEscapeKeydown)
       e.preventDefault();
       abracadabraEscapeKeydown = false;
       return false;
