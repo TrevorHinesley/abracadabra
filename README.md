@@ -118,6 +118,11 @@ tab_to_next: ".my-class"
 # Description: Puts a link to DELETE the object (obviously, it always uses DELETE as the 
 # HTTP verb).
 # Default: false
+
+submit_on_blur: true
+# Description: Submit form when focus leaves the input, rather than simply closing it
+# out.
+# Default: false
 ```
 
 ## Configuration

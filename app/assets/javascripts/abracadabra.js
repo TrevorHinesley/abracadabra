@@ -90,7 +90,11 @@ $(function() {
 
   $("body").on("blur", ".abracadabra-input", function() {
     if(abracadabraSubmissionInProgress == false && abracadabraDeleteMousedown == false) {
-      closeAbracadabra(this, false);
+      if($(this).data("submit-on-blur") == true) {
+        $(this.form).submit();
+      } else {
+        closeAbracadabra(this, false);
+      }
     }
   });
 
@@ -174,6 +178,15 @@ $(function() {
     }
     /* /Tab to next? */
 
+    /* Submit on blur? */
+    submitOnBlur = link.data("submit-on-blur");
+    if(submitOnBlur == true) {
+      submitOnBlur = " data-submit-on-blur=\"true\"";
+    } else {
+      submitOnBlur = "";
+    }
+    /* /Submit on blur? */
+
     /* AJAX? */
     if(remote == "") {
       authToken = "<input name=\"authenticity_token\" type=\"hidden\" value=\"" + $("meta[name=\"csrf-token\"]").attr("content") + "\">";
@@ -199,7 +212,7 @@ $(function() {
 
     openFormTag = "<form accept-charset=\"UTF-8\" action=\"" + path + "\"" + remote + type + " class=\"form-inline abracadabra-form\" method=\"post\">";
     hiddenMethodTags = "<div style=\"display:none;\"><input name=\"utf8\" type=\"hidden\" value=\"&#10003;\"><input name=\"_method\" type=\"hidden\" value=\"" + formMethod + "\">" + authToken + "</div>";
-    input = "<input type=\"text\" class=\"form-control abracadabra-input\" id=\"" + inputId + "\" name=\"" + inputName + "\" value=\"" + inputValue + "\"" + tabToNextSelector + ">";
+    input = "<input type=\"text\" class=\"form-control abracadabra-input\" id=\"" + inputId + "\" name=\"" + inputName + "\" value=\"" + inputValue + "\"" + tabToNextSelector + submitOnBlur + ">";
     
     html = "<span class=\"abracadabra-container\">" + openFormTag + hiddenMethodTags;
     html += "<div class=\"control-group\"><div class=\"abracadabra-input-and-button-wrapper\"><div class=\"abracadabra-input-container\">" + input + deletable + "</div>";
