@@ -53,64 +53,71 @@ It accepts the following parameters:
 ```ruby
 ### REQUIRED ###
 path: user_path(@user)
-# Specifies where the form will be submitted.
+# Description: Specifies where the form will be submitted.
 
 attribute: :name
-# Specifies what attribute your text field will be updating.
+# Description: Specifies what attribute your text field will be updating.
 
 
 ### OPTIONAL ###
 class: "my-class"
-# Class(es) to be added to the text input of the form. The class "abracadabra" is added # either way.
+# Description: Class(es) to be added to the text input of the form. The class 
+# "abracadabra" is added # either way.
 # Default: only "abracadabra"
 
 value: "blah"
-# An alternate value, other than what object.attribute would return.
+# Description: An alternate value, other than what object.attribute would return.
 # Default: object.attribute
 
 method: "patch"
-# HTTP REST method to use. Use anything but "get".
+# Description: HTTP REST method to use. Use anything but "get".
 # Default: "patch"
 
 buttonless: true
-# Removes submit and cancel buttons, submission and cancellation is then done through the
-# Enter/Tab and Escape keys, respectively.
+# Description: Removes submit and cancel buttons, submission and cancellation is then 
+# done through the Enter/Tab and Escape keys, respectively.
 # Default: false
 
 remote: true
-# Same as link_to's `remote: true`, form submits via AJAX.
+# Description: Same as link_to's `remote: true`, form submits via AJAX.
 # Default: true
 
 # IMPORTANT: `type` will be ignored if `remote = false` is used. HTML is the default 
 # in Rails for standard form submissions.
 type: :js
-# Content type -- responds to any content type (:js and :script can both be used to respond with Javascript).
+# Description: Content type -- responds to any content type (:js and :script can both be 
+# used to respond with Javascript).
 # Default: :script (:js)
 
 # IMPORTANT: On ajax:success, this will remove the specific abracadabra instance from 
 # the DOM entirely.
-# Boolean: DELETE will be submitted without a confirmation dialog
 deletable: true
+# Boolean: DELETE will be submitted without a confirmation dialog
 # OR
+deletable: "Are you sure?"
 # String: Confirmation dialog, with the string as the message, will be displayed after 
 # clicking the DELETE link
-deletable: "Are you sure?"
-# Puts a link to DELETE the object (obviously, it always uses DELETE as the HTTP verb).
+# Description: Puts a link to DELETE the object (obviously, it always uses DELETE as 
+# the HTTP verb).
 # Default: false
 
 deletable_path: user_path(@user)
-# Specifies where the form will be submitted. 
+# Description: Specifies where the form will be submitted. 
 # Default: path (uses the same path as the main form if `deletable_path` isn't declared).
 
-# Boolean: Find the next abracadabra instance by using `.abracadabra` as the selector.
+# Boolean: Open the next abracadabra instance after successful form submission (main 
+# form, not the DELETE link's submission) by using `.abracadabra` as the selector.
 tab_to_next: true
 # OR
-# String: The class or ID of the next abracadabra instance. Use `.` before a class 
-# selector or `#` before a an ID selector just as you would when finding an element
-# in Javascript.
+tab_to_next: ".my-class"
 # IMPORTANT: If this is a class, this abracadabra instance MUST have the same class
 # as well.
-tab_to_next: ".my-class"
+# String: The class or ID of the next abracadabra instance to open on succesful form 
+# submission. Use `.` before a class selector or `#` before a an ID selector just as you 
+# would when finding an element in Javascript.
+# Description: Puts a link to DELETE the object (obviously, it always uses DELETE as the 
+# HTTP verb).
+# Default: false
 ```
 
 ## Configuration

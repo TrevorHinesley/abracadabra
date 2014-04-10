@@ -70,6 +70,7 @@ $(function() {
     tabToNextSelector = input.data("tab-to-next-selector");
     tabToNextAbracadabra(this, tabToNextSelector);
     abracadabraSubmissionInProgress = false;
+    console.log(".abracadabra-form");
   });
 
   $("body").on("ajax:success", ".abracadabra-delete", function() {
