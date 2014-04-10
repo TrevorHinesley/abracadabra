@@ -2,7 +2,7 @@ $(function() {
   abracadabraSubmissionInProgress = false;
   abracadabraDeleteMousedown = false;
 
-  function closeAbracadabra(element, destroy) {
+  function closeAbracadabra(element, destroy, valueChanged) {
     $element = $(element);
     if($element.hasClass("abracadabra-container")) {
       container = $element;
@@ -13,7 +13,11 @@ $(function() {
     if(destroy) {
       container.siblings(".abracadabra").remove();
     } else {
-      value = container.find(".abracadabra-input").val();
+      if(valueChanged == true) {
+        value = container.find(".abracadabra-input").val();        
+      } else {
+        value = container.find(".abracadabra-input").data("original-value");
+      }
       container.siblings(".abracadabra").text(value).show();
     }
 
@@ -38,10 +42,10 @@ $(function() {
       }
       /* /If selector isn't an ID, find the element with the class AFTER the current element */
 
-      closeAbracadabra(element, false);
+      closeAbracadabra(element, false, true);
       nextAbracadabra.click();
     } else {
-      closeAbracadabra(element, false);
+      closeAbracadabra(element, false, true);
     }
   }
 
@@ -70,7 +74,7 @@ $(function() {
 
     /* If form is a DELETE, remove abracadabra instance, if not, call tabToNextSelector */
     if(target.hasClass("abracadabra-delete")) {
-      closeAbracadabra(target, true);
+      closeAbracadabra(target, true, true);
       abracadabraDeleteMousedown = false;
     } else {
       input = $(target).find(".abracadabra-input");
@@ -84,7 +88,7 @@ $(function() {
 
   $("body").on("click", ".abracadabra-cancel", function() {
     if(abracadabraSubmissionInProgress == false) {
-      closeAbracadabra(this, false);
+      closeAbracadabra(this, false, false);
     }
   });
 
@@ -93,7 +97,7 @@ $(function() {
       if($(this).data("submit-on-blur") == true) {
         $(this.form).submit();
       } else {
-        closeAbracadabra(this, false);
+        closeAbracadabra(this, false, false);
       }
     }
   });
@@ -114,7 +118,7 @@ $(function() {
     {
       e.preventDefault();
       if(abracadabraSubmissionInProgress == false) {
-        closeAbracadabra(this, false);
+        closeAbracadabra(this, false, false);
       }
     }
     /* /Press Escape to cancel */
@@ -214,7 +218,7 @@ $(function() {
 
     openFormTag = "<form accept-charset=\"UTF-8\" action=\"" + path + "\"" + remote + type + " class=\"form-inline abracadabra-form\" method=\"post\">";
     hiddenMethodTags = "<div style=\"display:none;\"><input name=\"utf8\" type=\"hidden\" value=\"&#10003;\"><input name=\"_method\" type=\"hidden\" value=\"" + formMethod + "\">" + authToken + "</div>";
-    input = "<input type=\"text\" class=\"form-control abracadabra-input\" id=\"" + inputId + "\" name=\"" + inputName + "\" value=\"" + inputValue + "\"" + tabToNextSelector + submitOnBlur + ">";
+    input = "<input type=\"text\" class=\"form-control abracadabra-input\" id=\"" + inputId + "\" name=\"" + inputName + "\" value=\"" + inputValue + "\" data-original-value=\"" + inputValue + "\"" + tabToNextSelector + submitOnBlur + ">";
     
     html = "<span class=\"abracadabra-container\">" + openFormTag + hiddenMethodTags;
     html += "<div class=\"control-group\"><div class=\"abracadabra-input-and-button-wrapper\"><div class=\"abracadabra-input-container\">" + input + deletable + "</div>";
