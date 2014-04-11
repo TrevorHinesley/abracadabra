@@ -87,19 +87,19 @@ remote: true
 # Description: Same as link_to's `remote: true`, form submits via AJAX.
 # Default: true
 
+type: :js
 # IMPORTANT: `type` will be ignored if `remote = false` is used. HTML is the default 
 # in Rails for standard form submissions.
-type: :js
 # Description: Content type -- responds to any content type (:js and :script can both be 
 # used to respond with Javascript).
 # Default: :script (:js)
 
-# IMPORTANT: On ajax:success, this will remove the specific abracadabra instance from 
-# the DOM entirely. ALSO, this will be remote if the main form is remote.
 deletable: true
-# Boolean: DELETE will be submitted without a confirmation dialog
 # OR
 deletable: "Are you sure?"
+# IMPORTANT: On ajax:success, this will remove the specific abracadabra instance from 
+# the DOM entirely. ALSO, this will be remote if the main form is remote.
+# Boolean: DELETE will be submitted without a confirmation dialog
 # String: Confirmation dialog, with the string as the message, will be displayed after 
 # clicking the DELETE link
 # Description: Puts a link to DELETE the object (obviously, it always uses DELETE as 
@@ -115,13 +115,13 @@ deletable_type: :js
 # can both be used to respond with Javascript).
 # Default: :script (:js)
 
-# Boolean: Open the next abracadabra instance after successful form submission (main 
-# form, not the DELETE link's submission) by using `.abracadabra` as the selector.
 tab_to_next: true
 # OR
 tab_to_next: ".my-class"
-# IMPORTANT: If this is a class, this abracadabra instance MUST have the same class
-# as well.
+# IMPORTANT: If use a string, and it's a class, this abracadabra instance MUST have the same
+# class as well.
+# Boolean: Open the next abracadabra instance after successful form submission (main 
+# form, not the DELETE link's submission) by using `.abracadabra` as the selector.
 # String: The class or ID of the next abracadabra instance to open on successful form 
 # submission. Use `.` before a class selector or `#` before a an ID selector just as you 
 # would when finding an element in Javascript.
@@ -134,8 +134,11 @@ submit_on_blur: true
 # out.
 # Default: false
 
+### EXAMPLE ###
+# Simple
+click_to_edit @friend, path: friend_path(@friend), attribute: :name, deletable: true
 
-# Example using a bunch of options
+# Using a bunch of options
 click_to_edit @friend, 
     path: friend_path(@friend),
     attribute: :name,
