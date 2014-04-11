@@ -23,7 +23,7 @@ Or install it yourself as:
 * Requires JQuery and JQuery-UJS (rails.js)
 * Bootstrap and Font-Awesome are the default, but you can override the CSS and/or customize the icon classes (see [Configuration](#configuration)) 
 
-In your `application.css`, AFTER Bootstrap (currently only supports Bootstrap), include the css file:
+In your `application.css`, AFTER Bootstrap, include the css file:
 
 ```css
  *= require abracadabra
