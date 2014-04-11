@@ -133,6 +133,23 @@ submit_on_blur: true
 # Description: Submit form when focus leaves the input, rather than simply closing it
 # out.
 # Default: false
+
+
+# Example using a bunch of options
+click_to_edit @friend, 
+    path: friend_path(@friend),
+    attribute: :name,
+    class: "my-abracadabra",
+    id: "my-abracadabra-#{index}",
+    value: @friend.name.titleize,
+    method: :put,
+    buttonless: true,
+    type: :json,
+    deletable: "Are you sure?",
+    deletable_path: user_friends_path(@friend)
+    deletable_type: :json,
+    tab_to_next: "#my-abracadabra-#{index+1}",
+    submit_on_blur: true
 ```
 
 ## Configuration
