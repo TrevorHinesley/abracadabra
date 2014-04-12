@@ -175,10 +175,6 @@ abracadabraDeleteIcon = "fa fa-times-circle-o"; // default
 
 2. I would love the different Bootstrap classes to be overridable with an initializer (config/abracadabra.rb), rather than Javascript (not sure if this is even possible), so that any framework could be used. Same with the Font-Awesome button classes.
 
-3. I would love for a `buttons: false` option to be offered that would allow only `Tab`, `Enter` and `Escape` to submit or cancel the form submission.
-
-4. I would love for a `tabbable: true` option to be offered that would tab to the next text input with the `abracadabra` class.
-
 Any other ideas, feel free to contribute!
 
 1. Fork it ( http://github.com/TrevorHinesley/abracadabra/fork )
