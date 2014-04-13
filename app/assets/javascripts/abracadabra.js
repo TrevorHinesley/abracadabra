@@ -1,6 +1,6 @@
 $(function() {
   abracadabraSubmissionInProgress = false;
-  abracadabraDeleteMousedown = false;
+  abracadabraButtonMousedown = false;
   abracadabraEscapeKeydown = false;
 
   function closeAbracadabra(element, destroy, valueChanged) {
@@ -68,17 +68,17 @@ $(function() {
     abracadabraSubmissionInProgress = true;
   });
 
-  $("body").on("mousedown", ".abracadabra-delete", function() {
-    abracadabraDeleteMousedown = true;
+  $("body").on("mousedown", ".abracadabra-delete, .abracadabra-submit, .abracadabra-cancel", function() {
+    abracadabraButtonMousedown = true;
   });
 
   $("body").on("ajax:success", ".abracadabra-form", function(e) {
     target = $(e.target);
+    abracadabraButtonMousedown = false;
 
     /* If form is a DELETE, remove abracadabra instance, if not, call tabToNextSelector */
     if(target.hasClass("abracadabra-delete")) {
       closeAbracadabra(target, true, true);
-      abracadabraDeleteMousedown = false;
     } else {
       input = $(target).find(".abracadabra-input");
       tabToNextSelector = input.data("tab-to-next-selector");
@@ -96,7 +96,7 @@ $(function() {
   });
 
   $("body").on("blur", ".abracadabra-input", function() {
-    if(abracadabraSubmissionInProgress == false && abracadabraDeleteMousedown == false) {
+    if(abracadabraSubmissionInProgress == false && abracadabraButtonMousedown == false) {
       if($(this).data("submit-on-blur") == true) {
         $(this.form).submit();
       } else {
