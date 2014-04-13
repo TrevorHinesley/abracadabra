@@ -2,7 +2,7 @@
 
 The gem that swaps out text with a fully-compliant Rails form in one click.
 
-Much of the concepts and html mark-up were taken from the awesome [x-editable](http://vitalets.github.io/x-editable/) plugin and the Rails version of this, [x-editable-rails](https://github.com/werein/x-editable-rails). However, this was written from the ground up and uses fully Rails-compliant forms without hacking into x-editable's core files, or overriding them.
+Much of the concepts and html mark-up were taken from the awesome [x-editable](http://vitalets.github.io/x-editable/) plugin and the Rails version of this, [x-editable-rails](https://github.com/werein/x-editable-rails). However, this was written from the ground up and uses fully Rails-compliant forms without hacking into x-editable's core files or overriding them.
 
 ## Installation
 
@@ -20,9 +20,10 @@ Or install it yourself as:
 
 ## Usage
 
-* Requires JQuery, JQuery-UJS (rails.js), Bootstrap and Font-Awesome (unless you override the framework specific classes with CSS)
+* Requires JQuery and JQuery-UJS (rails.js)
+* Bootstrap and Font-Awesome are the default, but you can override the CSS and/or customize the icon classes (see [Configuration](#configuration)) 
 
-In your `application.css`, AFTER Bootstrap (currently only supports Bootstrap), include the css file:
+In your `application.css`, AFTER Bootstrap, include the css file:
 
 ```css
  *= require abracadabra
@@ -86,19 +87,19 @@ remote: true
 # Description: Same as link_to's `remote: true`, form submits via AJAX.
 # Default: true
 
+type: :js
 # IMPORTANT: `type` will be ignored if `remote = false` is used. HTML is the default 
 # in Rails for standard form submissions.
-type: :js
 # Description: Content type -- responds to any content type (:js and :script can both be 
 # used to respond with Javascript).
 # Default: :script (:js)
 
-# IMPORTANT: On ajax:success, this will remove the specific abracadabra instance from 
-# the DOM entirely. ALSO, this will be remote if the main form is remote.
 deletable: true
-# Boolean: DELETE will be submitted without a confirmation dialog
 # OR
 deletable: "Are you sure?"
+# IMPORTANT: On ajax:success, this will remove the specific abracadabra instance from 
+# the DOM entirely. ALSO, this will be remote if the main form is remote.
+# Boolean: DELETE will be submitted without a confirmation dialog
 # String: Confirmation dialog, with the string as the message, will be displayed after 
 # clicking the DELETE link
 # Description: Puts a link to DELETE the object (obviously, it always uses DELETE as 
@@ -114,13 +115,13 @@ deletable_type: :js
 # can both be used to respond with Javascript).
 # Default: :script (:js)
 
-# Boolean: Open the next abracadabra instance after successful form submission (main 
-# form, not the DELETE link's submission) by using `.abracadabra` as the selector.
 tab_to_next: true
 # OR
 tab_to_next: ".my-class"
-# IMPORTANT: If this is a class, this abracadabra instance MUST have the same class
-# as well.
+# IMPORTANT: If use a string, and it's a class, this abracadabra instance MUST have the same
+# class as well.
+# Boolean: Open the next abracadabra instance after successful form submission (main 
+# form, not the DELETE link's submission) by using `.abracadabra` as the selector.
 # String: The class or ID of the next abracadabra instance to open on successful form 
 # submission. Use `.` before a class selector or `#` before a an ID selector just as you 
 # would when finding an element in Javascript.
@@ -132,6 +133,26 @@ submit_on_blur: true
 # Description: Submit form when focus leaves the input, rather than simply closing it
 # out.
 # Default: false
+
+### EXAMPLE ###
+# Simple
+click_to_edit @friend, path: friend_path(@friend), attribute: :name, deletable: true
+
+# Using a bunch of options
+click_to_edit @friend, 
+    path: friend_path(@friend),
+    attribute: :name,
+    class: "my-abracadabra",
+    id: "my-abracadabra-#{index}",
+    value: @friend.name.titleize,
+    method: :put,
+    buttonless: true,
+    type: :json,
+    deletable: "Are you sure?",
+    deletable_path: user_friends_path(@friend),
+    deletable_type: :json,
+    tab_to_next: "#my-abracadabra-#{index+1}",
+    submit_on_blur: true
 ```
 
 ## Configuration
@@ -153,10 +174,6 @@ abracadabraDeleteIcon = "fa fa-times-circle-o"; // default
 1. I would love anyone to add date pickers and other alternate field types to this.
 
 2. I would love the different Bootstrap classes to be overridable with an initializer (config/abracadabra.rb), rather than Javascript (not sure if this is even possible), so that any framework could be used. Same with the Font-Awesome button classes.
-
-3. I would love for a `buttons: false` option to be offered that would allow only `Tab`, `Enter` and `Escape` to submit or cancel the form submission.
-
-4. I would love for a `tabbable: true` option to be offered that would tab to the next text input with the `abracadabra` class.
 
 Any other ideas, feel free to contribute!
 
