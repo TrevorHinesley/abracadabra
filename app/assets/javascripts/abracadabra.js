@@ -24,11 +24,7 @@ $(function() {
 
     try {
       container.remove();
-    } catch (error) {
-      if(error.name != "NotFoundError") {
-        throw error;
-      }
-    }
+    } catch (error) {}
   }
 
   function tabToNextAbracadabra(element, selector) {
