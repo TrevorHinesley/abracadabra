@@ -52,9 +52,7 @@ $(function() {
 
   $("body").on("submit", ".abracadabra-form", function(e) {
     if(abracadabraSubmissionInProgress == true || abracadabraEscapeKeydown == true) {
-      console.log(abracadabraEscapeKeydown)
       e.preventDefault();
-      abracadabraEscapeKeydown = false;
       return false;
     }
     abracadabraSubmissionInProgress = true;
@@ -123,6 +121,7 @@ $(function() {
       e.preventDefault();
       if(abracadabraSubmissionInProgress == false) {
         closeAbracadabra(this, false, false);
+        abracadabraEscapeKeydown = false;
       }
     }
     /* /Press Escape to cancel */
