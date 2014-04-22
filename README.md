@@ -84,7 +84,7 @@ It accepts the following parameters:
 - `submit_on_blur: true` - Submit form when focus leaves the input, rather than simply closing it out. [*Default:* `false`]
 
 #### EXAMPLES ####
-##### *SIMPLE* ##### 
+##### *SIMPLE*
 ```ruby
 click_to_edit @friend, path: friend_path(@friend), attribute: :name, deletable: true
 ```
