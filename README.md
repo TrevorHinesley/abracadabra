@@ -71,7 +71,7 @@ It accepts the following parameters:
 
 - `remote: true` - Same as link_to's `remote: true`, form submits via AJAX. [*Default:* `true`]
 
-- `type: :js` - Content type -- responds to any content type (`:js` and `:script` can both be used to respond with Javascript). [*Default:* `:script`] **&#42;IMPORTANT: `type` will be ignored if `remote = false` is used. HTML is the default in Rails for standard form submissions.&#42;**
+- `type: :js` - Content type -- responds to any content type (`:js` and `:script` are interchangeable). [*Default:* `:script`] **&#42;IMPORTANT: `type` will be ignored if `remote = false` is used. HTML is the default in Rails for standard form submissions.&#42;**
 
 - `deletable: true` OR `deletable: "Are you sure?"` - Puts a link to DELETE the object (obviously, it always uses DELETE as the HTTP verb). If a boolean is used, it is submitted upon clicking. If a string is used, a confirmation dialog will prompt them using the string before submitting. [*Default:* `false`] **&#42;IMPORTANT: On `ajax:success`, this will remove the specific abracadabra instance from the DOM entirely. ALSO, this will be remote if the main form is remote.&#42;**
 
