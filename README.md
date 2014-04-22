@@ -53,12 +53,12 @@ The first parameter of `click_to_edit` is the object to be edited, and the only 
 
 It accepts the following parameters:
 
-#### REQUIRED ####
+#### REQUIRED
 - `path: user_path(@user)` - Specifies where the form will be submitted.
 
 - `attribute: :name` - Specifies what attribute your text field will be updating.
 
-#### OPTIONAL ####
+#### OPTIONAL
 - `class: "my-class"` - Class(es) to be added to the abracadabra link. The class "abracadabra" is added # either way. [*Default:* `"abracadabra"`]
 
 - `id: "my-id"` - ID to be added to the abracadabra link. [*Default:* `nil`]
@@ -83,13 +83,13 @@ It accepts the following parameters:
 
 - `submit_on_blur: true` - Submit form when focus leaves the input, rather than simply closing it out. [*Default:* `false`]
 
-#### EXAMPLES ####
+#### EXAMPLES
 ##### *SIMPLE*
 ```ruby
 click_to_edit @friend, path: friend_path(@friend), attribute: :name, deletable: true
 ```
 
-##### *COMPLEX* #####
+##### *COMPLEX*
 ```ruby
 click_to_edit @friend, 
     path: friend_path(@friend),
