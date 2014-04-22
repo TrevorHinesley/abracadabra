@@ -71,15 +71,15 @@ It accepts the following parameters:
 
 - `remote: true` - Same as link_to's `remote: true`, form submits via AJAX. [*Default:* `true`]
 
-- `type: :js` - Content type -- responds to any content type (`:js` and `:script` can both be used to respond with Javascript). [*Default:* `:script`] **&#41;IMPORTANT: `type` will be ignored if `remote = false` is used. HTML is the default in Rails for standard form submissions.&#41;**
+- `type: :js` - Content type -- responds to any content type (`:js` and `:script` can both be used to respond with Javascript). [*Default:* `:script`] **&#42;IMPORTANT: `type` will be ignored if `remote = false` is used. HTML is the default in Rails for standard form submissions.&#42;**
 
-- `deletable: true` OR `deletable: "Are you sure?"` - Puts a link to DELETE the object (obviously, it always uses DELETE as the HTTP verb). If a boolean is used, it is submitted upon clicking. If a string is used, a confirmation dialog will prompt them using the string before submitting. [*Default:* `false`] **&#41;IMPORTANT: On `ajax:success`, this will remove the specific abracadabra instance from the DOM entirely. ALSO, this will be remote if the main form is remote.&#41;**
+- `deletable: true` OR `deletable: "Are you sure?"` - Puts a link to DELETE the object (obviously, it always uses DELETE as the HTTP verb). If a boolean is used, it is submitted upon clicking. If a string is used, a confirmation dialog will prompt them using the string before submitting. [*Default:* `false`] **&#42;IMPORTANT: On `ajax:success`, this will remove the specific abracadabra instance from the DOM entirely. ALSO, this will be remote if the main form is remote.&#42;**
 
 - `deletable_path: user_path(@user)` - Specifies where the form will be submitted. [*Default:* `path` (uses the same path as the main form)]
 
 - `deletable_type: :js` - Deletable content type -- responds to any content type (:js and :script can both be used to respond with Javascript). [*Default:* `:script`]
 
-- `tab_to_next: true` OR `tab_to_next: ".my-class"` - Opens the next abracadabra instance after successful form submission (main form, not the DELETE link's submission). If a boolean is used, `.abracadabra` is the selector used to find the next instance to open. If a string is used, that will be the selector, so be sure to use standard JQuery selector syntax (i.e. `.class` and `#id`). [*Default:* `false`] ** &#41;IMPORTANT: If you use a string, and it's a class, this abracadabra instance MUST have the same class as well.&#41;**
+- `tab_to_next: true` OR `tab_to_next: ".my-class"` - Opens the next abracadabra instance after successful form submission (main form, not the DELETE link's submission). If a boolean is used, `.abracadabra` is the selector used to find the next instance to open. If a string is used, that will be the selector, so be sure to use standard JQuery selector syntax (i.e. `.class` and `#id`). [*Default:* `false`] **&#42;IMPORTANT: If you use a string, and it's a class, this abracadabra instance MUST have the same class as well.&#42;**
 
 - `submit_on_blur: true` - Submit form when focus leaves the input, rather than simply closing it out. [*Default:* `false`]
 
