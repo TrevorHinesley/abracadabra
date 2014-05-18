@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/abracadabra.svg)](http://badge.fury.io/rb/abracadabra)
+
 # Abracadabra
 
 The gem that swaps out text with a fully-compliant Rails form in one click.
@@ -51,94 +53,44 @@ The first parameter of `click_to_edit` is the object to be edited, and the only 
 
 It accepts the following parameters:
 
+#### REQUIRED
+- `path: user_path(@user)` - Specifies where the form will be submitted.
+
+- `attribute: :name` - Specifies what attribute your text field will be updating.
+
+#### OPTIONAL
+- `class: "my-class"` - Class(es) to be added to the abracadabra link. The class "abracadabra" is added # either way. [*Default:* `"abracadabra"`]
+
+- `id: "my-id"` - ID to be added to the abracadabra link. [*Default:* `nil`]
+
+- `value: "blah"` - An alternate value, other than what object.attribute would return. [*Default:* `object.attribute`]
+
+- `method: "patch"` - HTTP REST method to use. Use anything but "get". [*Default:* `"patch"`]
+
+- `buttonless: true` - Removes submit and cancel buttons, submission and cancellation is then one through the Enter/Tab and Escape keys, respectively. [*Default:* `false`]
+
+- `remote: true` - Same as link_to's `remote: true`, form submits via AJAX. [*Default:* `true`]
+
+- `type: :js` - Content type -- responds to any content type (`:js` and `:script` are interchangeable). [*Default:* `:script`] **&#42;IMPORTANT: `type` will be ignored if `remote = false` is used. HTML is the default in Rails for standard form submissions.&#42;**
+
+- `deletable: true` OR `deletable: "Are you sure?"` - Puts a link to DELETE the object (obviously, it always uses DELETE as the HTTP verb). If a boolean is used, it is submitted upon clicking. If a string is used, a confirmation dialog will prompt them using the string before submitting. [*Default:* `false`] **&#42;IMPORTANT: On `ajax:success`, this will remove the specific abracadabra instance from the DOM entirely. ALSO, this will be remote if the main form is remote.&#42;**
+
+- `deletable_path: user_path(@user)` - Specifies where the form will be submitted. [*Default:* `path` (uses the same path as the main form)]
+
+- `deletable_type: :js` - Deletable content type -- responds to any content type (:js and :script can both be used to respond with Javascript). [*Default:* `:script`]
+
+- `tab_to_next: true` OR `tab_to_next: ".my-class"` - Opens the next abracadabra instance after successful form submission (main form, not the DELETE link's submission). If a boolean is used, `.abracadabra` is the selector used to find the next instance to open. If a string is used, that will be the selector, so be sure to use standard JQuery selector syntax (i.e. `.class` and `#id`). [*Default:* `false`] **&#42;IMPORTANT: If you use a string, and it's a class, this abracadabra instance MUST have the same class as well.&#42;**
+
+- `submit_on_blur: true` - Submit form when focus leaves the input, rather than simply closing it out. [*Default:* `false`]
+
+#### EXAMPLES
+##### *SIMPLE*
 ```ruby
-### REQUIRED ###
-path: user_path(@user)
-# Description: Specifies where the form will be submitted.
-
-attribute: :name
-# Description: Specifies what attribute your text field will be updating.
-
-
-### OPTIONAL ###
-class: "my-class"
-# Description: Class(es) to be added to the abracadabra link. The class 
-# "abracadabra" is added # either way.
-# Default: only "abracadabra"
-
-id: "my-id"
-# Description: ID to be added to the abracadabra link.
-# Default: nil (No ID)
-
-value: "blah"
-# Description: An alternate value, other than what object.attribute would return.
-# Default: object.attribute
-
-method: "patch"
-# Description: HTTP REST method to use. Use anything but "get".
-# Default: "patch"
-
-buttonless: true
-# Description: Removes submit and cancel buttons, submission and cancellation is then 
-# done through the Enter/Tab and Escape keys, respectively.
-# Default: false
-
-remote: true
-# Description: Same as link_to's `remote: true`, form submits via AJAX.
-# Default: true
-
-type: :js
-# IMPORTANT: `type` will be ignored if `remote = false` is used. HTML is the default 
-# in Rails for standard form submissions.
-# Description: Content type -- responds to any content type (:js and :script can both be 
-# used to respond with Javascript).
-# Default: :script (:js)
-
-deletable: true
-# OR
-deletable: "Are you sure?"
-# IMPORTANT: On ajax:success, this will remove the specific abracadabra instance from 
-# the DOM entirely. ALSO, this will be remote if the main form is remote.
-# Boolean: DELETE will be submitted without a confirmation dialog
-# String: Confirmation dialog, with the string as the message, will be displayed after 
-# clicking the DELETE link
-# Description: Puts a link to DELETE the object (obviously, it always uses DELETE as 
-# the HTTP verb).
-# Default: false
-
-deletable_path: user_path(@user)
-# Description: Specifies where the form will be submitted. 
-# Default: path (uses the same path as the main form if `deletable_path` isn't declared).
-
-deletable_type: :js
-# Description: Deletable content type -- responds to any content type (:js and :script
-# can both be used to respond with Javascript).
-# Default: :script (:js)
-
-tab_to_next: true
-# OR
-tab_to_next: ".my-class"
-# IMPORTANT: If use a string, and it's a class, this abracadabra instance MUST have the same
-# class as well.
-# Boolean: Open the next abracadabra instance after successful form submission (main 
-# form, not the DELETE link's submission) by using `.abracadabra` as the selector.
-# String: The class or ID of the next abracadabra instance to open on successful form 
-# submission. Use `.` before a class selector or `#` before a an ID selector just as you 
-# would when finding an element in Javascript.
-# Description: Puts a link to DELETE the object (obviously, it always uses DELETE as the 
-# HTTP verb).
-# Default: false
-
-submit_on_blur: true
-# Description: Submit form when focus leaves the input, rather than simply closing it
-# out.
-# Default: false
-
-### EXAMPLE ###
-# Simple
 click_to_edit @friend, path: friend_path(@friend), attribute: :name, deletable: true
+```
 
-# Using a bunch of options
+##### *COMPLEX*
+```ruby
 click_to_edit @friend, 
     path: friend_path(@friend),
     attribute: :name,
