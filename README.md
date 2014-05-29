@@ -31,6 +31,12 @@ In your `application.css`, AFTER Bootstrap, include the css file:
  *= require abracadabra
 ```
 
+OR if you're using SASS/SCSS:
+
+```sass
+ @import "abracadabra-scss";
+```
+
 In your `application.js`, AFTER Jquery (required), include the javascript file:
 
 ```js
