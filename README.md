@@ -73,7 +73,7 @@ It accepts the following parameters:
 
 - `method: "patch"` - HTTP REST method to use. Use anything but "get". [*Default:* `"patch"`]
 
-- `buttonless: true` - Removes submit and cancel buttons, submission and cancellation is then one through the Enter/Tab and Escape keys, respectively. [*Default:* `false`]
+- `buttonless: true` - Removes submit and cancel buttons. Submission and cancellation is then done through the Enter/Tab and Escape keys, respectively. [*Default:* `false`]
 
 - `remote: true` - Same as link_to's `remote: true`, form submits via AJAX. [*Default:* `true`]
 
