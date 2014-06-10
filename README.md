@@ -65,7 +65,7 @@ It accepts the following parameters:
 - `attribute: :name` - Specifies what attribute your text field will be updating.
 
 #### OPTIONAL
-- `class: "my-class"` - Class(es) to be added to the abracadabra link. The class "abracadabra" is added # either way. [*Default:* `"abracadabra"`]
+- `class: "my-class"` - Class(es) to be added to the abracadabra link. The class "abracadabra" is added either way. [*Default:* `"abracadabra"`]
 
 - `id: "my-id"` - ID to be added to the abracadabra link. [*Default:* `nil`]
 
