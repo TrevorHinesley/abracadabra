@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-* Requires JQuery and JQuery-UJS (rails.js)
+* Requires jQuery and jQuery-UJS (rails.js)
 * Bootstrap and Font-Awesome are the default, but you can override the CSS and/or customize the icon classes (see [Configuration](#configuration)) 
 
 In your `application.css`, AFTER Bootstrap, include the css file:
@@ -37,7 +37,7 @@ OR if you're using SASS/SCSS:
  @import "abracadabra-scss";
 ```
 
-In your `application.js`, AFTER JQuery (required), include the javascript file:
+In your `application.js`, AFTER jQuery (required), include the javascript file:
 
 ```js
  //= require abracadabra
@@ -85,7 +85,7 @@ It accepts the following parameters:
 
 - `deletable_type: :js` - Deletable content type -- responds to any content type (:js and :script can both be used to respond with Javascript). [*Default:* `:script`]
 
-- `tab_to_next: true` OR `tab_to_next: ".my-class"` - Opens the next abracadabra instance after successful form submission (main form, not the DELETE link's submission). If a boolean is used, `.abracadabra` is the selector used to find the next instance to open. If a string is used, that will be the selector, so be sure to use standard JQuery selector syntax (i.e. `.class` and `#id`). [*Default:* `false`] **&#42;IMPORTANT: If you use a string, and it's a class, this abracadabra instance MUST have the same class as well.&#42;**
+- `tab_to_next: true` OR `tab_to_next: ".my-class"` - Opens the next abracadabra instance after successful form submission (main form, not the DELETE link's submission). If a boolean is used, `.abracadabra` is the selector used to find the next instance to open. If a string is used, that will be the selector, so be sure to use standard jQuery selector syntax (i.e. `.class` and `#id`). [*Default:* `false`] **&#42;IMPORTANT: If you use a string, and it's a class, this abracadabra instance MUST have the same class as well.&#42;**
 
 - `submit_on_blur: true` - Submit form when focus leaves the input, rather than simply closing it out. [*Default:* `false`]
 
