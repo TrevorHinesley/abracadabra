@@ -107,6 +107,14 @@ click_to_edit @friend,
     submit_on_blur: true
 ```
 
+#### REBINDING
+
+Simply call abracadabra's jQuery function:
+
+```javascript
+    $.abracadabra();
+```
+
 ## Configuration
 
 Abracadabra allows some customization. If you would like to change what icon classes are used for the `submit`, `cancel`, and `delete` icons, you can change them globally. 
