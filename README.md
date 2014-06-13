@@ -31,7 +31,13 @@ In your `application.css`, AFTER Bootstrap, include the css file:
  *= require abracadabra
 ```
 
-In your `application.js`, AFTER Jquery (required), include the javascript file:
+OR if you're using SASS/SCSS:
+
+```sass
+ @import "abracadabra-scss";
+```
+
+In your `application.js`, AFTER JQuery (required), include the javascript file:
 
 ```js
  //= require abracadabra
@@ -59,7 +65,7 @@ It accepts the following parameters:
 - `attribute: :name` - Specifies what attribute your text field will be updating.
 
 #### OPTIONAL
-- `class: "my-class"` - Class(es) to be added to the abracadabra link. The class "abracadabra" is added # either way. [*Default:* `"abracadabra"`]
+- `class: "my-class"` - Class(es) to be added to the abracadabra link. The class "abracadabra" is added either way. [*Default:* `"abracadabra"`]
 
 - `id: "my-id"` - ID to be added to the abracadabra link. [*Default:* `nil`]
 
@@ -67,7 +73,7 @@ It accepts the following parameters:
 
 - `method: "patch"` - HTTP REST method to use. Use anything but "get". [*Default:* `"patch"`]
 
-- `buttonless: true` - Removes submit and cancel buttons, submission and cancellation is then one through the Enter/Tab and Escape keys, respectively. [*Default:* `false`]
+- `buttonless: true` - Removes submit and cancel buttons. Submission and cancellation is then done through the Enter/Tab and Escape keys, respectively. [*Default:* `false`]
 
 - `remote: true` - Same as link_to's `remote: true`, form submits via AJAX. [*Default:* `true`]
 
