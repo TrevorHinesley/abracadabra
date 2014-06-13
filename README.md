@@ -118,7 +118,7 @@ click_to_edit @friend,
 Simply call abracadabra's jQuery function:
 
 ```javascript
-    $.abracadabra();
+$.abracadabra();
 ```
 
 ## Configuration
