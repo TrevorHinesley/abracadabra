@@ -22,8 +22,8 @@ Or install it yourself as:
 
 ## Usage
 
-* Requires jQuery and jQuery-UJS (rails.js)
-* Bootstrap and Font-Awesome are the default, but you can override the CSS and/or customize the icon classes (see [Configuration](#configuration)) 
+* Requires jQuery and jQuery-UJS (rails.js).
+* Bootstrap and Font-Awesome are the default, but are not required. You can override the CSS and/or customize the icon classes (see [Configuration](#configuration)).
 
 In your `application.css`, AFTER Bootstrap, include the css file:
 
