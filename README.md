@@ -107,7 +107,7 @@ click_to_edit @friend,
     buttonless: true,
     type: :json,
     deletable: "Are you sure?",
-    deletable_path: user_friends_path(@friend),
+    deletable_path: user_friend_path(@friend),
     deletable_type: :json,
     tab_to_next: "#my-abracadabra-#{index+1}",
     submit_on_blur: true
