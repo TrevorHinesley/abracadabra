@@ -75,7 +75,7 @@ It accepts the following parameters:
 
 - `buttonless: true` - Removes submit and cancel buttons. Submission and cancellation is then done through the Enter/Tab and Escape keys, respectively. [*Default:* `false`]
 
-- `remote: true` - Same as link_to's `remote: true`, form submits via AJAX. [*Default:* `true`]
+- `remote: true` - Same as `link_to`'s `remote: true`, form submits via AJAX. [*Default:* `true`]
 
 - `type: :js` - Content type -- responds to any content type (`:js` and `:script` are interchangeable). [*Default:* `:script`] **&#42;IMPORTANT: `type` will be ignored if `remote = false` is used. HTML is the default in Rails for standard form submissions.&#42;**
 
