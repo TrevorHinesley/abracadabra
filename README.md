@@ -139,7 +139,7 @@ abracadabraDeleteIcon = "fa fa-times-circle-o"; // default
 
 1. I would love anyone to add date pickers and other alternate field types to this.
 
-2. I would love the different Bootstrap classes to be overridable with an initializer (config/abracadabra.rb), rather than Javascript (not sure if this is even possible), so that any framework could be used. Same with the Font-Awesome button classes.
+2. I would love the different Bootstrap classes to be overridable with an initializer (config/initializers/abracadabra.rb), rather than Javascript (not sure if this is even possible), so that any framework could be used. Same with the Font-Awesome button classes.
 
 Any other ideas, feel free to contribute!
 
