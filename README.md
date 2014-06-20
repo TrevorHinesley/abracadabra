@@ -85,7 +85,7 @@ It accepts the following parameters:
 
 - `deletable_type: :js` - Deletable content type -- responds to any content type (:js and :script can both be used to respond with Javascript). [*Default:* `:script`]
 
-- `tab_to_next: true` OR `tab_to_next: ".my-class"` - Opens the next abracadabra instance after successful form submission (main form, not the DELETE link's submission). If a boolean is used, `.abracadabra` is the selector used to find the next instance to open. If a string is used, that will be the selector, so be sure to use standard jQuery selector syntax (i.e. `.class` and `#id`). [*Default:* `false`] **&#42;IMPORTANT: If you use a string, and it's a class, this abracadabra instance MUST have the same class as well. Because we have to find the next occurrence of it, and if this instance doesn't have that class, how do we know what the next one is?! :grin:&#42;**
+- `tab_to_next: true` OR `tab_to_next: ".my-class"` - Opens the next abracadabra instance after successful form submission (main form, not the DELETE link's submission). If a boolean is used, `.abracadabra` is the selector used to find the next instance to open. If a string is used, that will be the selector, so be sure to use standard jQuery selector syntax (i.e. `.class` and `#id`). [*Default:* `false`] **&#42;IMPORTANT: If you use a string, and it's a class, this abracadabra instance MUST have the same class as well.&#42;**
 
 - `submit_on_blur: true` - Submit form when focus leaves the input, rather than simply closing it out. [*Default:* `false`]
 
