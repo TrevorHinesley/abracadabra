@@ -137,7 +137,7 @@ abracadabraDeleteIcon = "fa fa-times-circle-o"; // default
 
 ## Integration Testing
 
-The most reliable way I've found to test abracadabra is by using the following helper (works with Rspec+Capybara using Capybara Webkit, Selenium, or Poltergeist/PhantomJS):
+The most reliable way I've found to test abracadabra is by using the following helper (works with Rspec+Capybara using Capybara Webkit, Selenium Webdriver, or Poltergeist/PhantomJS):
 
 ```ruby
 def execute_abracadabra(value, selector = ".abracadabra")
