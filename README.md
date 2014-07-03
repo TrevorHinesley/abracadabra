@@ -139,6 +139,18 @@ abracadabraDeleteIcon = "fa fa-times-circle-o"; // default
 
 The most reliable way I've found to test abracadabra is by using the following helper (works with Capybara):
 
+```ruby
+def execute_abracadabra(value, selector = ".abracadabra")
+  page.execute_script("$(\"#{selector}\").click();")
+  page.execute_script("$(\".abracadabra-input\").val(\"#{value}\");")
+  page.execute_script("$(\".abracadabra-submit\").click();")
+end
+```
+
+You can place that in a helper file, include it in your integration spec, and call it like so:
+
+```ruby
+execute_abracadabra "new value", "#editable-name"
 ```
 
 ## Future & Contributing
