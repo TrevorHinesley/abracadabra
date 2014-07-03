@@ -155,7 +155,7 @@ execute_abracadabra "new value", "#editable-name"
 
 This will click the abracadabra instance that has an ID of `#editable-name`, input `new value`, and submit it. Obviously, you can use any valid jQuery selector, not just IDs.
 
-If no selector is passed, `.abracadabra` is used. It's highly recommended to pass a specific selector, because as soon as one or more abracadra instances get on your page, the default selector (not suprisingly) won't play well.
+If no selector is passed, `.abracadabra` is used. It's highly recommended to pass a specific selector, because as soon as more than one abracadabra instance makes its way on to your page, the default selector (not suprisingly) won't play well.
 
 ## Future & Contributing
 
