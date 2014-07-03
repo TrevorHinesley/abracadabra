@@ -153,6 +153,8 @@ You can place that in a helper file, include it in your integration spec, and ca
 execute_abracadabra "new value", "#editable-name"
 ```
 
+This will click that abracadabra instance that has an ID of "#editable-name", input "new value", and submit it.
+
 ## Future & Contributing
 
 1. I would love anyone to add date pickers and other alternate field types to this.
