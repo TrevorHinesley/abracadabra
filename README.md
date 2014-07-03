@@ -135,6 +135,12 @@ abracadabraCancelIcon = "fa fa-times"; // default
 abracadabraDeleteIcon = "fa fa-times-circle-o"; // default
 ```
 
+## Integration Testing
+
+The most reliable way I've found to test abracadabra is by using the following helper (works with Capybara):
+
+```
+
 ## Future & Contributing
 
 1. I would love anyone to add date pickers and other alternate field types to this.
