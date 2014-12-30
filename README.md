@@ -115,6 +115,8 @@ click_to_edit @friend,
 
 #### REBINDING
 
+If you add `abracadabra` elements to the page dynamically, you will need to rebind.
+
 Simply call abracadabra's jQuery function:
 
 ```javascript
