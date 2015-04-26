@@ -37,7 +37,7 @@ OR if you're using SASS/SCSS:
  @import "abracadabra-scss";
 ```
 
-In your `application.js`, AFTER jQuery (required), include the javascript file:
+In your `application.js`, AFTER jQuery and jQuery-UJS (required), include the javascript file:
 
 ```js
  //= require abracadabra
